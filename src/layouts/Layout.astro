@@ -1,23 +1,212 @@
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio personnel d'un étudiant en programmation informatique et design graphique." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Portfolio Personnel</title>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<style is:global>
+  :root {
+    color-scheme: light;
+    font-family: Inter, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    font-weight: 400;
+    color: #111827;
+    background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  main {
+    width: min(1120px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 1rem 0 4rem;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+
+  .section-heading {
+    margin-bottom: 1.5rem;
+  }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #6366f1;
+    margin-bottom: 0.5rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin-top: 0;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .site-header,
+  .site-footer {
+    width: min(1120px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 1.2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .brand {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: #111827;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    color: #4b5563;
+    font-weight: 500;
+  }
+
+  .nav-links a:hover {
+    color: #111827;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    padding-top: 2rem;
+  }
+
+  .hero-text,
+  .about-grid p,
+  .card p,
+  .contact-text {
+    color: #4b5563;
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 0.8rem 1.2rem;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .button:hover {
+    transform: translateY(-2px);
+  }
+
+  .button.primary {
+    background: #4f46e5;
+    color: white;
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.2);
+  }
+
+  .button.secondary {
+    background: white;
+    color: #111827;
+    border: 1px solid #e5e7eb;
+  }
+
+  .hero-card,
+  .card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    padding: 1.4rem;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  }
+
+  .hero-card ul {
+    padding-left: 1.1rem;
+    color: #4b5563;
+  }
+
+  .about-grid,
+  .card-grid {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .about-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .site-footer {
+    justify-content: center;
+    color: #6b7280;
+    font-size: 0.95rem;
+    padding-bottom: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero,
+    .about-grid,
+    .card-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .site-header {
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+  }
 </style>
