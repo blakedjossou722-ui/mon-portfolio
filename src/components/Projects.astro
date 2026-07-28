@@ -1,21 +1,115 @@
-<section id="projects" class="section">
-  <div class="section-heading">
-    <p class="eyebrow">Projets</p>
-    <h2>Quelques exemples de réalisations.</h2>
-  </div>
+---
+const projects = [
+  {
+    title: 'Portfolio Personnel & Vitrine',
+    category: 'Développement Web',
+    desc: 'Site portfolio moderne développé avec Astro v7 et Tailwind CSS v4, conçu avec une esthétique glassmorphic sombre et responsive.',
+    tags: ['Astro', 'Tailwind CSS', 'TypeScript', 'Responsive'],
+    link: 'https://github.com/blakedjossou722-ui/mon-portfolio',
+    gradient: 'from-indigo-600/30 to-purple-600/30',
+    iconColor: 'text-indigo-400'
+  },
+  {
+    title: 'Affiche & Support Publicitaire',
+    category: 'Design Visuel & Branding',
+    desc: 'Création graphique originale sur Photoshop & Illustrator pour la promotion d’un événement avec composition typographique et travail sur la lumière.',
+    tags: ['Photoshop', 'Illustrator', 'Branding', 'Print'],
+    link: '#',
+    gradient: 'from-purple-600/30 to-pink-600/30',
+    iconColor: 'text-purple-400'
+  },
+  {
+    title: 'Landing Page Produit SaaS',
+    category: 'UI/UX & Intégration',
+    desc: 'Maquette UI sur Figma et intégration front-end réactive optimisée pour la conversion utilisateur et les performances Web (Core Web Vitals).',
+    tags: ['React', 'Figma', 'UI/UX', 'CSS Grid'],
+    link: '#',
+    gradient: 'from-teal-600/30 to-emerald-600/30',
+    iconColor: 'text-teal-400'
+  }
+];
+---
 
-  <div class="card-grid">
-    <article class="card project-card">
-      <h3>Portfolio personnel</h3>
-      <p>Un site moderne centré sur la présentation de mes compétences et de mon univers créatif.</p>
-    </article>
-    <article class="card project-card">
-      <h3>Affiche promotionnelle</h3>
-      <p>Design visuel pensé pour capter l’attention et transmettre un message clair.</p>
-    </article>
-    <article class="card project-card">
-      <h3>Landing page</h3>
-      <p>Page de présentation ciblée, optimisée pour convertir et mettre en avant un service.</p>
-    </article>
+<section id="projects" class="py-20 relative">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Heading -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-2 inline-block">
+          Réalisations
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white tracking-tight">
+          Quelques exemples de <span class="text-gradient">projets</span>
+        </h2>
+      </div>
+      <p class="text-slate-400 text-sm max-w-md">
+        Découvrez une sélection de mes créations récentes en développement web et design visuel.
+      </p>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid md:grid-cols-3 gap-8">
+      {projects.map((project) => (
+        <article class="glass-card glass-card-hover rounded-2xl overflow-hidden border border-white/10 flex flex-col justify-between group">
+          
+          <div>
+            <!-- Banner Graphic Mockup -->
+            <div class={`h-48 bg-gradient-to-br ${project.gradient} border-b border-slate-800 p-6 flex flex-col justify-between relative overflow-hidden`}>
+              <div class="flex items-center justify-between z-10">
+                <span class="px-3 py-1 text-xs font-semibold bg-slate-950/80 text-indigo-300 rounded-full backdrop-blur-md border border-white/10">
+                  {project.category}
+                </span>
+              </div>
+
+              <!-- Decorative SVG Art -->
+              <div class="absolute -right-6 -bottom-6 w-36 h-36 opacity-20 group-hover:scale-110 transition-transform">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full fill-current text-white">
+                  <path d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.5,90,-16.3,88.5,-0.9C87,14.6,81.4,29.1,72.7,41.4C64,53.7,52.2,63.7,38.9,71.4C25.6,79.1,10.8,84.5,-4.4,85.2C-19.6,86,-35,82.1,-48.1,74C-61.2,65.9,-72,53.6,-78.9,39.5C-85.8,25.4,-88.8,9.5,-86.3,-5.7C-83.8,-20.9,-75.8,-35.4,-65.4,-46.8C-55,-58.2,-42.2,-66.5,-28.9,-74.1C-15.6,-81.7,-1.8,-88.6,12.7,-88.4C27.2,-88.2,30.6,-83.6,44.7,-76.4Z" transform="translate(100 100)" />
+                </svg>
+              </div>
+
+              <div class="z-10">
+                <h3 class="font-heading font-bold text-xl text-white group-hover:text-indigo-300 transition-colors">
+                  {project.title}
+                </h3>
+              </div>
+            </div>
+
+            <!-- Card Content Body -->
+            <div class="p-6">
+              <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                {project.desc}
+              </p>
+
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                {project.tags.map((tag) => (
+                  <span class="px-2.5 py-1 text-xs font-medium bg-slate-900 text-slate-300 rounded-md border border-slate-800">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Footer Action -->
+          <div class="p-6 pt-0">
+            <a
+              href={project.link}
+              target={project.link.startsWith('http') ? '_blank' : '_self'}
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-xs font-bold text-indigo-400 hover:text-indigo-300 transition-colors"
+            >
+              <span>En savoir plus</span>
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+          </div>
+
+        </article>
+      ))}
+    </div>
+
   </div>
 </section>

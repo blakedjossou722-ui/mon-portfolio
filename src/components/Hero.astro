@@ -1,23 +1,133 @@
-<section id="hero" class="hero section">
-  <div class="hero-content">
-    <p class="eyebrow">Étudiant en programmation informatique &amp; design graphique</p>
-    <h1>Je conçois des sites modernes et des visuels impactants.</h1>
-    <p class="hero-text">
-      Je transforme des idées en expériences web soignées, visuellement fortes et efficaces pour
-      aider les projets à se démarquer.
-    </p>
-    <div class="hero-actions">
-      <a class="button primary" href="#projects">Voir mes projets</a>
-      <a class="button secondary" href="#contact">Me contacter</a>
-    </div>
-  </div>
+---
+const techStack = [
+  { name: 'Astro', color: 'from-orange-500 to-amber-500' },
+  { name: 'React', color: 'from-cyan-500 to-blue-500' },
+  { name: 'TypeScript', color: 'from-blue-600 to-indigo-600' },
+  { name: 'Tailwind CSS', color: 'from-teal-400 to-cyan-500' },
+  { name: 'Node.js', color: 'from-emerald-500 to-green-600' },
+  { name: 'Figma', color: 'from-purple-500 to-pink-500' },
+  { name: 'Photoshop', color: 'from-blue-500 to-cyan-600' },
+];
+---
 
-  <div class="hero-card" aria-label="Résumé de compétences">
-    <h2>Ce que je propose</h2>
-    <ul>
-      <li>Création de sites web modernes</li>
-      <li>Design graphique et identité visuelle</li>
-      <li>Affiches publicitaires et supports de communication</li>
-    </ul>
+<section id="hero" class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Left Hero Text Content -->
+      <div class="lg:col-span-7 flex flex-col items-start gap-6">
+        
+        <!-- Status Pill -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-950/60 border border-indigo-500/30 text-indigo-300 text-xs font-medium shadow-inner">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span>Étudiant en 3ᵉ année • Développeur Web & Designer</span>
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading tracking-tight text-white leading-tight">
+          Je conçois des sites <span class="text-gradient">modernes</span> & des visuels <span class="text-gradient">impactants</span>.
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-lg text-slate-300 leading-relaxed max-w-2xl">
+          Combinaison unique entre la logique du développement web et la créativité du design graphique. Je transforme des idées en expériences numériques performantes, accessibles et élégantes.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a
+            href="#projects"
+            class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:-translate-y-0.5 transition-all flex items-center gap-2"
+          >
+            <span>Voir mes projets</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+          <a
+            href="#contact"
+            class="px-6 py-3.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700/80 font-semibold hover:-translate-y-0.5 transition-all flex items-center gap-2"
+          >
+            <span>Me contacter</span>
+          </a>
+        </div>
+
+        <!-- Tech Stack Badges -->
+        <div class="pt-6 border-t border-slate-800/80 w-full">
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Stack & Outils clés</p>
+          <div class="flex flex-wrap gap-2">
+            {techStack.map((tech) => (
+              <span class="px-3 py-1 text-xs font-medium bg-slate-900/90 text-slate-300 rounded-lg border border-slate-800 hover:border-slate-700 transition-colors flex items-center gap-1.5">
+                <span class={`w-2 h-2 rounded-full bg-gradient-to-r ${tech.color}`}></span>
+                {tech.name}
+              </span>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Glass Card Showcase -->
+      <div class="lg:col-span-5 relative">
+        <div class="glass-card rounded-2xl p-6 sm:p-8 relative z-10 border border-white/10 shadow-2xl">
+          <div class="flex items-center gap-4 mb-6 pb-6 border-b border-slate-800">
+            <div class="w-14 h-14 rounded-2xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-heading font-bold text-xl text-white">Mon Profil</h3>
+              <p class="text-xs text-indigo-300">Fullstack Junior & UI Designer</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800/80 flex items-start gap-3">
+              <div class="p-2 rounded-lg bg-indigo-500/10 text-indigo-400 mt-0.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-sm font-semibold text-white">Développement Web</h4>
+                <p class="text-xs text-slate-400">Sites réactifs, interfaces dynamiques et APIs performantes.</p>
+              </div>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800/80 flex items-start gap-3">
+              <div class="p-2 rounded-lg bg-purple-500/10 text-purple-400 mt-0.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-sm font-semibold text-white">Design Visuel & Graphisme</h4>
+                <p class="text-xs text-slate-400">Identité de marque, maquettes UI/UX et supports publicitaires.</p>
+              </div>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800/80 flex items-start gap-3">
+              <div class="p-2 rounded-lg bg-pink-500/10 text-pink-400 mt-0.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-sm font-semibold text-white">Rigueur & Accessibilité</h4>
+                <p class="text-xs text-slate-400">Code propre, normes WCAG et optimisation SEO.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ambient glow behind right card -->
+        <div class="absolute -inset-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-3xl blur-2xl opacity-20 -z-10"></div>
+      </div>
+
+    </div>
   </div>
 </section>

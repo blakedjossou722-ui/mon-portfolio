@@ -1,3 +1,21 @@
-<footer class="site-footer">
-  <p>© 2026 Prénom Nom — Portfolio personnel</p>
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t border-slate-800/80 bg-slate-950/90 py-8 relative z-10">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+    <div class="flex items-center gap-2">
+      <div class="w-6 h-6 rounded-md bg-indigo-600 flex items-center justify-center text-white font-bold font-heading text-xs">
+        P
+      </div>
+      <span>&copy; {currentYear} Portfolio Dev. Tous droits réservés.</span>
+    </div>
+
+    <div class="flex items-center gap-6">
+      <a href="#about" class="hover:text-white transition-colors">À propos</a>
+      <a href="#services" class="hover:text-white transition-colors">Services</a>
+      <a href="#projects" class="hover:text-white transition-colors">Projets</a>
+      <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+    </div>
+  </div>
 </footer>
