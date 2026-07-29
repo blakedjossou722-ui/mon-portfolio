@@ -6,682 +6,158 @@ import Footer from '../components/Footer.astro';
 import ResponsiveImage from '../components/ResponsiveImage.astro';
 ---
 
-<Layout>
+<Layout
+  title="Services & Compétences | Blake DJOSSOU"
+  description="Découvrez les prestations proposées par Blake DJOSSOU : développement web (Astro, React, Node.js), design graphique (Figma, Photoshop, Branding) et optimisation de performance SEO."
+>
   <Header />
-  <main id="main">
-    <Hero eyebrow="// SERVICES" title="Ce que je peux faire pour vous (spoiler: c'est bon)" text="Je fais du web performant, du design graphique sharp, et de l'UI/UX qui convertit. Chaque service est fait pour marquer et pour scaler avec votre business." primaryLabel="Voir les projets" primaryHref="/projects" secondaryLabel="Parlons de votre idée" secondaryHref="/contact" imageSrc="/Web.png" imageAlt="Illustration web moderne" />
+  <main id="main" class="flex-grow">
+    <Hero
+      eyebrow="// SERVICES & EXPERTISE"
+      title="Ce que je peux réaliser pour vous."
+      text="Des prestations sur-mesure combinant intégration web ultra-rapide, design visuel percutant et expérience utilisateur fluide pour maximiser l'impact de vos projets."
+      imageSrc="/Web.png"
+      imageAlt="Illustration services web"
+      primaryLabel="Voir mes projets"
+      primaryHref="/projects"
+      secondaryLabel="Demander un devis"
+      secondaryHref="/contact"
+    />
 
-    <section class="section service-cards-section">
-      <div class="section-content">
-        <div class="section-heading">
-          <span class="eyebrow">// TROIS OFFRES</span>
-          <h2>Chacune peut transformer votre projet</h2>
+    <!-- Main Services Grid -->
+    <section class="py-16 border-t border-slate-800/80">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+          <span class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-2 inline-block font-mono">
+            // TROIS PÔLES D'EXPERTISE
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white tracking-tight">
+            Des offres adaptées à vos objectifs
+          </h2>
         </div>
 
-        <div class="service-cards">
-        <article class="service-card dev">
-          <div class="card-image card-image-stack">
-            <ResponsiveImage src="/Laravel.png" alt="Laravel" width={48} height={48} class="img-responsive" />
-            <ResponsiveImage src="/React.png" alt="React" width={48} height={48} class="img-responsive" />
-            <ResponsiveImage src="/Git.png" alt="Git" width={48} height={48} class="img-responsive" />
-            <ResponsiveImage src="/GitHub.png" alt="GitHub" width={48} height={48} class="img-responsive" />
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Card 1 -->
+          <div class="glass-card glass-card-hover rounded-2xl p-8 border border-white/10 flex flex-col justify-between reveal">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 mb-6">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold font-heading text-white mb-3">Développement Web</h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                Création de sites web réactifs, rapides et sécurisés avec Astro, React et Node.js. Intégration soignée et SEO sémantique.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-800 flex flex-wrap gap-1.5">
+              {['Astro', 'React', 'TypeScript', 'Node.js', 'REST API'].map(tag => (
+                <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-900 text-slate-300 rounded-md border border-slate-800">{tag}</span>
+              ))}
+            </div>
           </div>
-          <div class="card-content">
-            <span class="card-category">Développement Web</span>
-            <h3>Sites rapides et scalables</h3>
-            <p>Sites web hyperfocalisés sur la vitesse, l'accessibilité et la conversion. Code propre, responsive design, SEO optimisé. Des sites qui marchent vraiment.</p>
-            <a class="button outline" href="/contact">Commencer un projet</a>
-          </div>
-        </article>
 
-        <article class="service-card highlight">
-          <div class="card-image card-image-stack">
-            <ResponsiveImage src="/Illustrator.png" alt="Illustrator" width={48} height={48} class="img-responsive" />
-            <ResponsiveImage src="/Photoshop.png" alt="Photoshop" width={48} height={48} class="img-responsive" />
+          <!-- Card 2 -->
+          <div class="glass-card glass-card-hover rounded-2xl p-8 border border-white/10 flex flex-col justify-between reveal reveal-delay-1">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-purple-600/20 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-6">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold font-heading text-white mb-3">Design Visuel & Branding</h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                Conception d'identités graphiques, logos uniques, affiches et supports marketing sur-mesure avec Photoshop & Illustrator.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-800 flex flex-wrap gap-1.5">
+              {['Figma', 'Photoshop', 'Illustrator', 'Branding', 'Print'].map(tag => (
+                <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-900 text-slate-300 rounded-md border border-slate-800">{tag}</span>
+              ))}
+            </div>
           </div>
-          <div class="card-content">
-            <span class="card-category">Design Graphique</span>
-            <h3>Identités visuelles qui marquent</h3>
-            <p>Logos, branding complet, affiches, flyers — des designs graphiques qui attirent l'attention et qui collent. Votre histoire, visuellement.</p>
-            <a class="button outline" href="/contact">Créer ensemble</a>
-          </div>
-        </article>
 
-        <article class="service-card">
-          <div class="card-image card-image-stack">
-            <ResponsiveImage src="/tailwind.png" alt="Tailwind CSS" width={48} height={48} class="img-responsive" />
-            <ResponsiveImage src="/React.png" alt="React" width={48} height={48} class="img-responsive" />
+          <!-- Card 3 -->
+          <div class="glass-card glass-card-hover rounded-2xl p-8 border border-white/10 flex flex-col justify-between reveal reveal-delay-2">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-emerald-600/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-6">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold font-heading text-white mb-3">UX/UI & Accessibilité</h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                Parcours utilisateurs fluides, optimisation des temps de chargement (Core Web Vitals) et conformité aux normes WCAG.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-800 flex flex-wrap gap-1.5">
+              {['Core Web Vitals', 'WCAG (A11y)', 'UI/UX', 'Responsive'].map(tag => (
+                <span class="px-2.5 py-1 text-xs font-mono font-medium bg-slate-900 text-slate-300 rounded-md border border-slate-800">{tag}</span>
+              ))}
+            </div>
           </div>
-          <div class="card-content">
-            <span class="card-category">Interface & UX</span>
-            <h3>Design d'interfaces qui convertissent</h3>
-            <p>UI/UX stratégique : interfaces intuitives, parcours utilisateurs optimisés, designs qui poussent à l'action. Beau ET efficace.</p>
-            <a class="button outline" href="/contact">Discutons de votre UX</a>
-          </div>
-        </article>
         </div>
       </div>
     </section>
 
-    <section class="section tool-gallery">
-      <div class="section-content">
-        <div class="section-heading">
-          <span class="eyebrow">// OUTILS</span>
-          <h2>Outils locaux et maîtrisés</h2>
-        </div>
-        <div class="tool-categories">
-        <div class="tool-category">
-          <h4>Langages</h4>
-          <div class="tool-grid small">
-            <div class="tool-pill"><ResponsiveImage src="/html5.png" alt="HTML5" width={40} height={40} class="img-responsive"/><span>HTML5</span></div>
-            <div class="tool-pill"><ResponsiveImage src="/CSS.png" alt="CSS" width={40} height={40} class="img-responsive"/><span>CSS</span></div>
-            <div class="tool-pill"><ResponsiveImage src="/JavaScript.png" alt="JavaScript" width={40} height={40} class="img-responsive"/><span>JavaScript</span></div>
-            <div class="tool-pill"><ResponsiveImage src="/TypeScript.png" alt="TypeScript" width={40} height={40} class="img-responsive"/><span>TypeScript</span></div>
-            <div class="tool-pill"><ResponsiveImage src="/Java.png" alt="Java" width={40} height={40} class="img-responsive"/><span>Java</span></div>
-            <div class="tool-pill"><ResponsiveImage src="/PHP.png" alt="PHP" width={40} height={40} class="img-responsive"/><span>PHP</span></div>
-            <div class="tool-pill"><ResponsiveImage src="/Python.png" alt="Python" width={40} height={40} class="img-responsive"/><span>Python</span></div>
-            <div class="tool-pill"><ResponsiveImage src="/cpp.png" alt="C++" width={40} height={40} class="img-responsive"/><span>C++</span></div>
-          </div>
+    <!-- Stack Gallery -->
+    <section class="py-16 border-t border-slate-800/80">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12 reveal">
+          <span class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-2 inline-block font-mono">
+            // OUTILS & ENVIRONNEMENT
+          </span>
+          <h2 class="text-3xl font-extrabold font-heading text-white tracking-tight">
+            Les technologies au quotidien
+          </h2>
         </div>
 
-        <div class="tool-category">
-          <h4>Frameworks & bibliothèques</h4>
-          <div class="tool-grid">
-            <div class="tool-pill"><ResponsiveImage src="/React.png" alt="React" width={40} height={40} class="img-responsive"/><span>React</span></div>
-            <div class="tool-pill"><ResponsiveImage src="/Laravel.png" alt="Laravel" width={40} height={40} class="img-responsive"/><span>Laravel</span></div>
-            <div class="tool-pill"><ResponsiveImage src="/tailwind.png" alt="Tailwind CSS" width={40} height={40} class="img-responsive"/><span>Tailwind CSS</span></div>
-            <div class="tool-pill"><ResponsiveImage src="/Node.js.png" alt="Node.js" width={40} height={40} class="img-responsive"/><span>Node.js</span></div>
-          </div>
-        </div>
-
-        <div class="tool-category">
-          <h4>Backend & APIs</h4>
-          <div class="tool-grid small">
-            <div class="tool-pill"><ResponsiveImage src="/GraphQL.png" alt="GraphQL" width={40} height={40} class="img-responsive"/><span>GraphQL</span></div>
-            <div class="tool-pill"><ResponsiveImage src="/rest-apis.png" alt="REST APIs" width={40} height={40} class="img-responsive"/><span>REST APIs</span></div>
-            <div class="tool-pill"><ResponsiveImage src="/Firebase.png" alt="Firebase" width={40} height={40} class="img-responsive"/><span>Firebase</span></div>
-            <div class="tool-pill"><ResponsiveImage src="/Supabase.png" alt="Supabase" width={40} height={40} class="img-responsive"/><span>Supabase</span></div>
-          </div>
-        </div>
-
-        <div class="tool-category">
-          <h4>Bases de données</h4>
-          <div class="tool-grid small">
-            <div class="tool-pill"><ResponsiveImage src="/mysql.png" alt="MySQL" width={40} height={40} class="img-responsive"/><span>MySQL</span></div>
-            <div class="tool-pill"><ResponsiveImage src="/MongoDB.png" alt="MongoDB" width={40} height={40} class="img-responsive"/><span>MongoDB</span></div>
-            <div class="tool-pill"><ResponsiveImage src="/PostgreSQL.png" alt="PostgreSQL" width={40} height={40} class="img-responsive"/><span>PostgreSQL</span></div>
-          </div>
-        </div>
-
-        <div class="tool-category">
-          <h4>Design & Création</h4>
-          <div class="tool-grid">
-            <div class="tool-pill"><ResponsiveImage src="/Photoshop.png" alt="Photoshop" width={40} height={40} class="img-responsive"/><span>Photoshop</span></div>
-            <div class="tool-pill"><ResponsiveImage src="/Illustrator.png" alt="Illustrator" width={40} height={40} class="img-responsive"/><span>Illustrator</span></div>
-            <div class="tool-pill"><ResponsiveImage src="/Canva.png" alt="Canva" width={40} height={40} class="img-responsive"/><span>Canva</span></div>
-            <div class="tool-pill"><ResponsiveImage src="/Figma.png" alt="Figma" width={40} height={40} class="img-responsive"/><span>Figma</span></div>
-            <div class="tool-pill"><ResponsiveImage src="/Blender.png" alt="Blender" width={40} height={40} class="img-responsive"/><span>Blender</span></div>
-            <div class="tool-pill"><ResponsiveImage src="/Affinity_Designer.png" alt="Affinity Designer" width={40} height={40} class="img-responsive"/><span>Affinity Designer</span></div>
-            <div class="tool-pill"><ResponsiveImage src="/Procreate.png" alt="Procreate" width={40} height={40} class="img-responsive"/><span>Procreate</span></div>
-          </div>
-        </div>
-
-        <div class="tool-category">
-          <h4>Cloud & DevOps</h4>
-          <div class="tool-grid small">
-            <div class="tool-pill"><ResponsiveImage src="/Docker.png" alt="Docker" width={40} height={40} class="img-responsive"/><span>Docker</span></div>
-            <div class="tool-pill"><ResponsiveImage src="/Vercel.png" alt="Vercel" width={40} height={40} class="img-responsive"/><span>Vercel</span></div>
-          </div>
-        </div>
-
-        <div class="tool-category">
-          <h4>Outils & Plateformes</h4>
-          <div class="tool-grid">
-            <div class="tool-pill"><ResponsiveImage src="/Git.png" alt="Git" width={40} height={40} class="img-responsive"/><span>Git</span></div>
-            <div class="tool-pill"><ResponsiveImage src="/GitHub.png" alt="GitHub" width={40} height={40} class="img-responsive"/><span>GitHub</span></div>
-            <div class="tool-pill"><ResponsiveImage src="/vscode.png" alt="VS Code" width={40} height={40} class="img-responsive"/><span>VS Code</span></div>
-          </div>
-        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 reveal">
+          {[
+            { name: 'Astro', img: '/React.png' },
+            { name: 'React', img: '/React.png' },
+            { name: 'TypeScript', img: '/TypeScript.png' },
+            { name: 'Tailwind CSS', img: '/tailwind.png' },
+            { name: 'Node.js', img: '/Node.js.png' },
+            { name: 'Figma', img: '/Figma.png' },
+            { name: 'Photoshop', img: '/Photoshop.png' },
+            { name: 'Illustrator', img: '/Illustrator.png' },
+            { name: 'Git', img: '/Git.png' },
+            { name: 'GitHub', img: '/GitHub.png' },
+            { name: 'Docker', img: '/Docker.png' },
+            { name: 'VS Code', img: '/vscode.png' },
+          ].map((tool) => (
+            <div class="glass-card p-4 rounded-xl border border-white/10 flex items-center gap-3 hover:border-indigo-500/40 transition-colors">
+              <ResponsiveImage src={tool.img} alt={tool.name} width={32} height={32} class="w-8 h-8 object-contain shrink-0" />
+              <span class="text-xs font-semibold text-slate-200 truncate">{tool.name}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>
 
-    <section class="section why-section">
-      <div class="section-content">
-        <div class="section-heading">
-          <span class="eyebrow">// POURQUOI MOI ?</span>
-          <h2>Une approche complète, du concept à la livraison.</h2>
-        </div>
-        <div class="why-grid">
-        <article class="why-card">
-          <div class="why-icon">1</div>
-          <h3>Stratégie UX</h3>
-          <p>Des parcours conçus pour l'utilisateur, avec des interfaces fluides et des objectifs métier clairs.</p>
-        </article>
-        <article class="why-card">
-          <div class="why-icon">2</div>
-          <h3>Identité visuelle</h3>
-          <p>Des visuels et des logos qui apportent de la cohérence à votre marque grâce à des choix typographiques et coloriels précis.</p>
-        </article>
-        <article class="why-card">
-          <div class="why-icon">3</div>
-          <h3>Production web</h3>
-          <p>Des sites stables, rapides et maintenables, basés sur des technologies modernes et des pratiques de performance.</p>
-        </article>
-        <article class="why-card">
-          <div class="why-icon">4</div>
-          <h3>Relation projet</h3>
-          <p>Un accompagnement réactif, transparent et orienté résultats pour chaque phase de votre projet.</p>
-        </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section project-invite">
-      <div class="section-content">
-        <div class="project-invite-card">
-        <div>
-          <span class="eyebrow">// MES PROJETS</span>
-          <h2>Des réalisations concrètes, une cohérence créative et une vraie puissance d'exécution.</h2>
-          <p>Découvrez des projets qui montrent à la fois un sens aiguisé du design et une exécution technique solide.</p>
-        </div>
-          <a class="button primary project-cta" href="/projects">Voir mes projets</a>
+    <!-- CTA Section -->
+    <section class="py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+        <div class="glass-card p-8 sm:p-12 rounded-3xl border border-indigo-500/30">
+          <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-white mb-3">
+            Besoin d'une prestation personnalisée ?
+          </h2>
+          <p class="text-slate-400 text-sm max-w-xl mx-auto mb-6">
+            Parlons de vos besoins et établissons ensemble une stratégie de réalisation efficace.
+          </p>
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold text-sm shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 transition-all hover:-translate-y-0.5"
+          >
+            <span>Me contacter</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
         </div>
       </div>
     </section>
   </main>
   <Footer />
 </Layout>
-
-<style>
-  .section-content {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 var(--space-md);
-  }
-
-  .services-hero {
-    position: relative;
-    padding: 4rem 0 3rem;
-    overflow: hidden;
-  }
-
-  .services-hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 860px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .services-hero .eyebrow {
-    color: var(--primary);
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
-    display: inline-block;
-  }
-
-  .services-hero h1 {
-    font-size: clamp(2.8rem, 5vw, 4.2rem);
-    margin-bottom: 1.25rem;
-    line-height: 1.02;
-  }
-
-  .intro-text {
-    max-width: 720px;
-    margin: 0 auto 2rem;
-    color: var(--on-surface-variant);
-    line-height: 1.8;
-    font-size: 1.05rem;
-  }
-
-  .hero-buttons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .hero-cta {
-    min-width: 180px;
-  }
-
-  .hero-cta.primary {
-    background: linear-gradient(135deg, #8dd1e0 0%, #226d7a 100%);
-    color: var(--surface);
-    border: none;
-  }
-
-  .hero-cta.secondary {
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--on-surface);
-    border: 1px solid rgba(141, 209, 224, 0.25);
-  }
-
-  .hero-cta:hover {
-    transform: translateY(-2px);
-  }
-
-  .hero-accent {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-
-  .accent-blob {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.25;
-    filter: blur(40px);
-  }
-
-  .blob-1 {
-    width: 220px;
-    height: 220px;
-    background: #8dd1e0;
-    top: -30px;
-    left: 10%;
-  }
-
-  .blob-2 {
-    width: 180px;
-    height: 180px;
-    background: #226d7a;
-    bottom: 20%;
-    right: 18%;
-  }
-
-  .blob-3 {
-    width: 120px;
-    height: 120px;
-    background: #b0e2ec;
-    top: 25%;
-    right: 35%;
-  }
-
-  .service-cards-section,
-  .tool-gallery,
-  .why-section {
-    padding: var(--space-xl) 0;
-  }
-
-  .service-cards {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--space-lg);
-    margin-top: var(--space-lg);
-  }
-
-  .service-card {
-    background: rgba(24, 24, 24, 0.8);
-    border: 1px solid rgba(141, 209, 224, 0.12);
-    border-radius: 1.25rem;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
-  }
-
-  .service-card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(141, 209, 224, 0.4);
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
-  }
-
-  .service-card.highlight {
-    background: linear-gradient(180deg, rgba(34, 109, 122, 0.85), rgba(19, 19, 19, 0.95));
-    border-color: rgba(141, 209, 224, 0.25);
-  }
-
-  .card-image {
-    background: linear-gradient(180deg, rgba(141, 209, 224, 0.18), rgba(19, 19, 19, 0.5));
-    padding: 1.5rem;
-    display: grid;
-    place-items: center;
-    gap: 0.75rem;
-  }
-
-  .card-image-stack {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.75rem;
-    justify-items: center;
-    align-items: center;
-  }
-
-  .card-image-stack img {
-    width: 72px;
-    height: 72px;
-    object-fit: contain;
-    border-radius: 0.9rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 0.65rem;
-    background: rgba(255, 255, 255, 0.05);
-  }
-
-  /* Align images on a single row for the Développement card */
-  .service-card.dev .card-image-stack {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    gap: 0.75rem;
-  }
-
-  .service-card.dev .card-image-stack img {
-    width: 72px;
-    height: 72px;
-  }
-
-  @media (max-width: 600px) {
-    .service-card.dev .card-image-stack {
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-  }
-
-  .card-image img {
-    width: 72px;
-    height: 72px;
-    object-fit: contain;
-    border-radius: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 0.8rem;
-    background: rgba(255, 255, 255, 0.05);
-  }
-
-  .card-content {
-    padding: 1.75rem;
-    display: grid;
-    gap: 1rem;
-    flex: 1;
-  }
-
-  .card-category {
-    color: var(--primary);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-  }
-
-  .service-card h3 {
-    margin: 0;
-    color: var(--on-surface);
-    font-size: 1.55rem;
-  }
-
-  .service-card p {
-    margin: 0;
-    color: var(--on-surface-variant);
-    line-height: 1.8;
-  }
-
-  .button.outline {
-    align-self: start;
-    margin-top: auto;
-    background: transparent;
-    border: 1px solid rgba(141, 209, 224, 0.35);
-    color: var(--on-surface);
-  }
-
-  .button.outline:hover {
-    background: rgba(141, 209, 224, 0.12);
-  }
-
-  .tool-categories {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-lg);
-    margin-top: var(--space-lg);
-  }
-
-  .tool-category h4 {
-    margin: 0 0 0.75rem;
-    font-size: 0.9rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--primary);
-  }
-
-  .tool-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 0.75rem;
-    align-items: center;
-  }
-
-  .tool-grid.small {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  }
-
-  .tool-pill {
-    display: flex;
-    align-items: center;
-    gap: 0.9rem;
-    padding: 0.9rem 1rem;
-    background: rgba(42, 42, 42, 0.32);
-    border: 1px solid rgba(141, 209, 224, 0.10);
-    border-radius: 0.85rem;
-    transition: transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms ease;
-    min-width: 0;
-    min-height: 64px;
-    overflow: hidden;
-    justify-content: flex-start;
-  }
-
-  .tool-pill:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 18px 40px rgba(0,0,0,0.28);
-    background-color: rgba(42, 42, 42, 0.6);
-  }
-
-  .tool-pill img {
-    width: 44px;
-    height: 44px;
-    border-radius: 0.5rem;
-    object-fit: contain;
-    flex: 0 0 44px;
-    background: rgba(255,255,255,0.03);
-    padding: 6px;
-  }
-
-  .tool-pill span {
-    color: var(--on-surface);
-    font-weight: 600;
-    font-size: 0.95rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    min-width: 0;
-  }
-
-  /* Project CTA styling to match the hero CTA and be more prominent */
-  .project-invite-card .button.primary,
-  .project-invite-card .project-cta {
-    background: linear-gradient(135deg, #8dd1e0 0%, #226d7a 100%);
-    color: var(--surface);
-    border: none;
-    padding: 0.95rem 1.25rem;
-    font-size: 1.05rem;
-    min-width: 320px;
-    text-align: center;
-  }
-
-  .project-invite-card .button.primary:hover,
-  .project-invite-card .project-cta:hover {
-    transform: translateY(-3px);
-  }
-
-  /* Improve visibility of the Mes projets headline/message */
-  .project-invite-card h2 {
-    color: var(--on-surface);
-  }
-
-  /* Responsive: stack categories and reduce columns on small screens */
-  @media (max-width: 900px) {
-    .tool-categories {
-      grid-template-columns: 1fr;
-    }
-    .tool-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    .tool-grid.small {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-    .project-invite-card {
-      flex-direction: column;
-      align-items: stretch;
-    }
-    .project-invite-card .button.primary,
-    .project-invite-card .project-cta {
-      min-width: 100%;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .tool-grid {
-      grid-template-columns: 1fr;
-    }
-    .tool-grid.small {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    .tool-pill img {
-      width: 36px;
-      height: 36px;
-      flex: 0 0 36px;
-    }
-    .tool-pill span {
-      font-size: 0.9rem;
-    }
-  }
-
-  /* Reduce vertical spacing between sections for tighter layout */
-  .section {
-    padding-top: var(--space-md);
-    padding-bottom: var(--space-md);
-  }
-
-  .section + .section {
-    margin-top: calc(var(--space-md) / 2);
-  }
-
-  .section-heading {
-    margin-bottom: 0.6rem;
-  }
-
-  .project-invite {
-    padding: var(--space-xl) 0;
-  }
-
-  .project-invite-card {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-    background: rgba(14, 34, 41, 0.9);
-    border: 1px solid rgba(141, 209, 224, 0.16);
-    border-radius: 1.5rem;
-    padding: 2rem;
-  }
-
-  .project-invite-card h2 {
-    margin: 0.5rem 0 0;
-    font-size: clamp(2rem, 2.5vw, 2.6rem);
-    line-height: 1.1;
-    color: var(--surface);
-    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-  }
-
-  .project-invite-card p {
-    margin: 0;
-    max-width: 640px;
-    color: var(--on-surface-variant);
-    line-height: 1.8;
-  }
-
-  .project-invite-card .button {
-    min-width: 220px;
-  }
-
-  .why-grid {
-    margin-top: var(--space-lg);
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: var(--space-lg);
-  }
-
-  .why-card {
-    background: rgba(42, 42, 42, 0.4);
-    border: 1px solid rgba(141, 209, 224, 0.12);
-    border-radius: 1rem;
-    padding: 1.75rem;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-  }
-
-  .why-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(141, 209, 224, 0.35);
-  }
-
-  .why-icon {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    background: rgba(141, 209, 224, 0.18);
-    color: var(--primary);
-    display: grid;
-    place-items: center;
-    font-family: var(--font-mono);
-    font-weight: 700;
-    margin-bottom: 1rem;
-  }
-
-  .why-card h3 {
-    margin: 0 0 0.75rem;
-    color: var(--on-surface);
-  }
-
-  .why-card p {
-    margin: 0;
-    color: var(--on-surface-variant);
-    line-height: 1.8;
-  }
-
-  .section-heading h2 {
-    margin-top: 0.75rem;
-    color: var(--on-surface);
-  }
-
-  @media (max-width: 1100px) {
-    .service-cards,
-    .why-grid,
-    .tool-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (max-width: 768px) {
-    .services-hero {
-      padding: 3rem 0 2rem;
-    }
-
-    .hero-buttons {
-      flex-direction: column;
-    }
-
-    .service-cards,
-    .why-grid,
-    .tool-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .hero-accent {
-      display: none;
-    }
-  }
-</style>

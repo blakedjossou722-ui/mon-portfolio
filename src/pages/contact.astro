@@ -5,44 +5,143 @@ import Hero from '../components/Hero.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout>
+<Layout
+  title="Contact | Blake DJOSSOU - Projets & Collaboration"
+  description="Contactez Blake DJOSSOU pour discuter d'un projet web, d'une création graphique ou d'une opportunité de collaboration. Réponse sous 24h à 48h."
+>
   <Header />
-  <main id="main">
-    <Hero eyebrow="// CONTACT" title="Vous avez une idée ? On peut en parler." text="Envoyez-moi un message, on verra si on est une bonne paire. Proposition de projet en 24-48h, sérieusement." imageSrc="/Your.png" imageAlt="Illustration personnalisée" />
+  <main id="main" class="flex-grow">
+    <Hero
+      eyebrow="// PRENDRE CONTACT"
+      title="Vous avez un projet ? Discutons-en."
+      text="Que vous ayez besoin d'un site web sur-mesure, d'un redesign UI/UX ou d'une identité visuelle complète, envoyez-moi un message."
+      imageSrc="/Your.png"
+      imageAlt="Illustration contact"
+      primaryLabel="Parler directement"
+      primaryHref="#contact-form"
+    />
 
-    <section class="section">
-      <div class="section-grid">
-        <div class="card">
-          <h3>Parlez-moi directement</h3>
-          <p>Email : blakedjossou722@gmail.com</p>
-          <p><a href="mailto:blakedjossou722@gmail.com">M'envoyer un email</a></p>
-          <p><a href="https://wa.me/2290153298119" target="_blank" rel="noopener">Ou sur WhatsApp</a></p>
-        </div>
-
-        <div class="card">
-          <h3>Ou utilisez ce formulaire</h3>
-          <p class="contact-hint">C'est plus rapide</p>
-          <form id="contact-form" class="contact-form" aria-label="Formulaire de contact">
-            <div class="form-grid">
-              <label>
-                <span>Prénom</span>
-                <input type="text" name="prenom" placeholder="Genre Jean" required aria-label="Prénom" aria-required="true" />
-              </label>
-              <label>
-                <span>Nom</span>
-                <input type="text" name="nom" placeholder="Genre Dupont" required aria-label="Nom" aria-required="true" />
-              </label>
+    <section class="py-16 border-t border-slate-800/80">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-12 items-start">
+          
+          <!-- Contact Info Cards -->
+          <div class="lg:col-span-5 space-y-6 reveal">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-2 inline-block font-mono">
+                // COORDONNÉES DIRECTES
+              </span>
+              <h2 class="text-3xl font-extrabold font-heading text-white tracking-tight">
+                Discutons de vos besoins
+              </h2>
+              <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+                N'hésitez pas à me contacter par e-mail, WhatsApp ou via le formulaire ci-contre.
+              </p>
             </div>
-            <label>
-              <span>Objet du message</span>
-              <input type="text" name="objet" placeholder="Genre 'Je veux un site web'" required aria-label="Objet" aria-required="true" />
-            </label>
-            <label>
-              <span>Dites-moi tout</span>
-              <textarea name="message" rows="6" placeholder="C'est une startup, on veut faire... Et on veut lancer en..." required aria-label="Message" aria-required="true"></textarea>
-            </label>
-            <button class="button primary" type="submit">Envoyer</button>
-          </form>
+
+            <div class="space-y-4 pt-2">
+              <div class="glass-card p-5 rounded-2xl border border-white/10 flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 shrink-0">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs font-mono text-slate-400 uppercase">Adresse E-mail</p>
+                  <a href="mailto:blakedjossou722@gmail.com" class="text-sm font-semibold text-white hover:text-indigo-400 transition-colors">
+                    blakedjossou722@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div class="glass-card p-5 rounded-2xl border border-white/10 flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-emerald-600/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.157 4.228 4.301-1.127z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs font-mono text-slate-400 uppercase">WhatsApp</p>
+                  <a href="https://wa.me/2290153298119" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-white hover:text-emerald-400 transition-colors">
+                    +229 01 53 29 81 19
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Container -->
+          <div class="lg:col-span-7 reveal reveal-delay-1">
+            <form
+              id="contact-form"
+              class="glass-card p-6 sm:p-8 rounded-3xl border border-white/10 space-y-5"
+              data-form-service="mailto"
+              aria-label="Formulaire de contact"
+            >
+              <!-- Status Feedback Banner -->
+              <div id="form-status" class="hidden p-4 rounded-xl text-sm font-medium border"></div>
+
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label for="prenom" class="block text-xs font-mono font-semibold text-slate-300 uppercase mb-2">Prénom *</label>
+                  <input
+                    type="text"
+                    id="prenom"
+                    name="prenom"
+                    required
+                    placeholder="Jean"
+                    class="w-full px-4 py-3 bg-slate-900/80 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-indigo-500 transition-colors"
+                  />
+                </div>
+                <div>
+                  <label for="nom" class="block text-xs font-mono font-semibold text-slate-300 uppercase mb-2">Nom *</label>
+                  <input
+                    type="text"
+                    id="nom"
+                    name="nom"
+                    required
+                    placeholder="Dupont"
+                    class="w-full px-4 py-3 bg-slate-900/80 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-indigo-500 transition-colors"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label for="objet" class="block text-xs font-mono font-semibold text-slate-300 uppercase mb-2">Objet du message *</label>
+                <input
+                  type="text"
+                  id="objet"
+                  name="objet"
+                  required
+                  placeholder="Projet de site web, opportunité..."
+                  class="w-full px-4 py-3 bg-slate-900/80 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-indigo-500 transition-colors"
+                />
+              </div>
+
+              <div>
+                <label for="message" class="block text-xs font-mono font-semibold text-slate-300 uppercase mb-2">Message *</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                  placeholder="Décrivez brièvement votre projet ou votre demande..."
+                  class="w-full px-4 py-3 bg-slate-900/80 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-indigo-500 transition-colors resize-none"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full py-4 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-500 hover:to-pink-500 text-white font-bold text-sm shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>Envoyer le message</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                </svg>
+              </button>
+            </form>
+          </div>
+
         </div>
       </div>
     </section>
@@ -50,108 +149,32 @@ import Footer from '../components/Footer.astro';
   <Footer />
 </Layout>
 
-<style>
-  .intro-text {
-    max-width: 760px;
-    color: var(--on-surface-variant);
-  }
-
-  .section-grid {
-    display: grid;
-    gap: var(--space-lg);
-    grid-template-columns: 1.2fr 1fr;
-  }
-
-  .card {
-    background-color: rgba(42, 42, 42, 0.4);
-    border: 1px solid var(--outline);
-    border-radius: 0.75rem;
-    padding: var(--space-lg);
-  }
-
-  .card h3 {
-    color: var(--on-surface);
-    margin-bottom: var(--space-sm);
-  }
-
-  .card p,
-  .contact-hint {
-    color: var(--on-surface-variant);
-    line-height: 1.8;
-  }
-
-  .contact-hint {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-family: var(--font-mono);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--primary);
-  }
-
-  .contact-form {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .contact-form label {
-    display: grid;
-    gap: 0.5rem;
-    color: var(--on-surface);
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    padding: 0.9rem 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid var(--outline);
-    background-color: rgba(42, 42, 42, 0.45);
-    color: var(--on-surface);
-    font: inherit;
-  }
-
-  .contact-form input:focus,
-  .contact-form textarea:focus {
-    outline: none;
-    border-color: var(--primary);
-  }
-
-  .form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .button.primary {
-    width: 100%;
-  }
-
-  @media (max-width: 768px) {
-    .section-grid,
-    .form-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
-
 <script>
-  const contactForm = document.getElementById('contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const formData = new FormData(contactForm);
-      const prenom = formData.get('prenom') || '';
-      const nom = formData.get('nom') || '';
-      const objet = formData.get('objet') || 'Nouveau message depuis le portfolio';
-      const message = formData.get('message') || '';
-      const subject = `Portfolio: ${objet}`;
-      const body = `Bonjour Blake,%0D%0A%0D%0A${encodeURIComponent(message)}%0D%0A%0D%0APrénom: ${encodeURIComponent(prenom)}%0D%0ANom: ${encodeURIComponent(nom)}`;
-      window.location.href = `mailto:blakedjossou722@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-    });
-  }
+  document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contact-form') as HTMLFormElement | null;
+    const formStatus = document.getElementById('form-status');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(contactForm);
+        const prenom = formData.get('prenom') || '';
+        const nom = formData.get('nom') || '';
+        const objet = formData.get('objet') || 'Nouveau message';
+        const message = formData.get('message') || '';
+
+        if (formStatus) {
+          formStatus.className = 'p-4 rounded-xl text-sm font-medium border bg-indigo-500/10 border-indigo-500/30 text-indigo-300 mb-4 block';
+          formStatus.textContent = 'Préparation du message... Votre client mail va s\'ouvrir.';
+        }
+
+        const subject = `[Portfolio] ${objet}`;
+        const body = `Bonjour Blake,\n\n${message}\n\nDe: ${prenom} ${nom}`;
+        
+        setTimeout(() => {
+          window.location.href = `mailto:blakedjossou722@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }, 300);
+      });
+    }
+  });
 </script>

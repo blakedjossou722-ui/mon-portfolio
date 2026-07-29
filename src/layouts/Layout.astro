@@ -1,12 +1,20 @@
-﻿---
+---
 import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
 
 const {
   title = "Portfolio | Développeur Web & Designer Graphique",
   description = "Portfolio professionnel d'un étudiant en 3e année de développement web et design graphique. Découvrez mes projets, compétences et créations visuelles."
-} = Astro.props;
-const canonical = Astro.site ?? '';
+} = Astro.props as Props;
+
+const siteUrl = Astro.site ? Astro.site.origin : 'https://mon-portfolio.vercel.app';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 ---
+
 <!doctype html>
 <html lang="fr" class="dark scroll-smooth">
   <head>
@@ -16,26 +24,55 @@ const canonical = Astro.site ?? '';
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
+    <!-- Open Graph & Meta -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical + Astro.url.pathname} />
-    <meta property="og:image" content="/secure-financial-future.png" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={`${siteUrl}/Dev_icone.png`} />
+    
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="/secure-financial-future.png" />
-    <link rel="canonical" href={canonical + Astro.url.pathname} />
+
+    <link rel="canonical" href={canonicalUrl} />
     <title>{title}</title>
   </head>
   <body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-indigo-500 selection:text-white antialiased relative overflow-x-hidden">
+    <!-- Ambient Background Lighting -->
     <div class="fixed inset-0 pointer-events-none z-0 glow-gradient"></div>
     <div class="fixed top-1/4 -left-48 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
     <div class="fixed bottom-1/3 -right-48 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
     <div class="relative z-10 flex flex-col min-h-screen">
       <slot />
     </div>
+
+    <!-- Ultra-lightweight Scroll Reveal Observer -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const revealElements = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+          revealElements.forEach(el => observer.observe(el));
+        } else {
+          revealElements.forEach(el => el.classList.add('is-visible'));
+        }
+      });
+    </script>
   </body>
 </html>

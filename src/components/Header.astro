@@ -1,5 +1,6 @@
 ---
 const currentPath = Astro.url.pathname;
+
 const links = [
   { href: '/', label: 'Accueil' },
   { href: '/about', label: 'À propos' },
@@ -9,10 +10,11 @@ const links = [
 ];
 ---
 
-<header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80 transition-all">
+<header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/85 border-b border-slate-800/80 transition-all">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    
     <!-- Brand Logo -->
-    <a href="#hero" class="flex items-center gap-3 group">
+    <a href="/" class="flex items-center gap-3 group focus-visible:outline-none">
       <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-purple-500 flex items-center justify-center text-white font-bold font-heading shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform">
         P
       </div>
@@ -20,218 +22,116 @@ const links = [
         <span class="font-heading font-bold text-lg text-white group-hover:text-indigo-400 transition-colors">
           Portfolio Dev
         </span>
-        <span class="text-xs text-slate-400">Web & Design</span>
+        <span class="text-xs text-slate-400 font-mono">Blake DJOSSOU</span>
       </div>
     </a>
 
-    <!-- Navigation Links -->
-    <nav class="hidden md:flex items-center gap-1 bg-slate-900/60 p-1.5 rounded-full border border-slate-800" aria-label="Navigation principale">
-      {links.map((link) => (
-        <a
-          href={link.href}
-          class="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 rounded-full transition-all"
-        >
-          {link.label}
-        </a>
-      ))}
+    <!-- Desktop Navigation Links -->
+    <nav id="site-navigation" class="hidden md:flex items-center gap-1 bg-slate-900/80 p-1.5 rounded-full border border-slate-800" aria-label="Navigation principale">
+      {links.map((link) => {
+        const isActive = currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href));
+        return (
+          <a
+            href={link.href}
+            class={`px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-full transition-all ${
+              isActive
+                ? 'bg-indigo-600 text-white shadow-md shadow-indigo-500/20'
+                : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+            }`}
+          >
+            {link.label}
+          </a>
+        );
+      })}
     </nav>
 
-    <!-- Action CTA -->
+    <!-- Right Action & Mobile Toggle -->
     <div class="flex items-center gap-3">
       <a
-        href="#contact"
-        class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-xs font-semibold rounded-full group bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 group-hover:from-indigo-500 group-hover:to-pink-500 text-white shadow-md shadow-indigo-500/20 hover:shadow-indigo-500/40 transition-all hover:scale-105"
+        href="/contact"
+        class="hidden sm:inline-flex items-center justify-center p-0.5 overflow-hidden text-xs font-semibold rounded-full group bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 text-white shadow-md shadow-indigo-500/20 hover:shadow-indigo-500/40 transition-all hover:scale-105"
       >
         <span class="px-4 py-2 transition-all ease-in duration-75 bg-slate-950 rounded-full group-hover:bg-opacity-0">
           Me contacter
         </span>
+      </a>
+
+      <!-- Hamburger Button -->
+      <button
+        type="button"
+        class="menu-toggle md:hidden p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white focus:outline-none"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        aria-label="Ouvrir le menu de navigation"
+      >
+        <svg class="w-6 h-6 icon-open" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg class="w-6 h-6 icon-close hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-b border-slate-800 bg-slate-950/95 backdrop-blur-xl px-4 pt-3 pb-6 space-y-2">
+    {links.map((link) => {
+      const isActive = currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href));
+      return (
+        <a
+          href={link.href}
+          class={`block px-4 py-3 rounded-xl text-sm font-semibold transition-all ${
+            isActive
+              ? 'bg-indigo-600/20 border border-indigo-500/30 text-indigo-300'
+              : 'text-slate-300 hover:bg-slate-900 hover:text-white'
+          }`}
+        >
+          {link.label}
+        </a>
+      );
+    })}
+    <div class="pt-2">
+      <a
+        href="/contact"
+        class="block text-center py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold text-sm shadow-lg shadow-indigo-500/20"
+      >
+        Me contacter
       </a>
     </div>
   </div>
 </header>
 
 <script>
-  const toggleButton = document.querySelector('.menu-toggle');
-  const navigation = document.getElementById('site-navigation');
-  if (toggleButton && navigation) {
-    toggleButton.addEventListener('click', () => {
-      const isOpen = toggleButton.getAttribute('aria-expanded') === 'true';
-      toggleButton.setAttribute('aria-expanded', String(!isOpen));
-      navigation.classList.toggle('is-open');
-    });
-  }
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.querySelector('.menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.querySelector('.icon-open');
+    const iconClose = document.querySelector('.icon-close');
+
+    if (toggleBtn && mobileMenu) {
+      toggleBtn.addEventListener('click', () => {
+        const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+        toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
+        mobileMenu.classList.toggle('hidden');
+        if (iconOpen && iconClose) {
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && toggleBtn.getAttribute('aria-expanded') === 'true') {
+          toggleBtn.setAttribute('aria-expanded', 'false');
+          mobileMenu.classList.add('hidden');
+          if (iconOpen && iconClose) {
+            iconOpen.classList.remove('hidden');
+            iconClose.classList.add('hidden');
+          }
+        }
+      });
+    }
+  });
 </script>
-
-<style>
-  .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 110;
-    width: 100%;
-    background: linear-gradient(180deg, var(--surface) 0%, rgba(19, 19, 19, 0.95) 100%);
-    border-bottom: 1px solid rgba(141, 209, 224, 0.12);
-    backdrop-filter: blur(8px);
-  }
-
-  .header-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 1.5rem;
-    gap: 1.25rem;
-    min-height: 48px;
-  }
-
-  .brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--on-surface);
-    font-family: var(--font-serif);
-    font-size: 1rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  .brand:hover {
-    color: var(--primary);
-  }
-
-  .brand-icon {
-    width: 28px;
-    height: 28px;
-    transition: transform 0.18s ease, box-shadow 0.18s ease;
-    display: inline-block;
-    overflow: hidden;
-    border-radius: 6px;
-    object-fit: cover;
-  }
-
-  .brand:hover .brand-icon {
-    transform: translateY(-1px) scale(1.03);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-  }
-
-  .menu-toggle {
-    display: none;
-    border: none;
-    background: none;
-    padding: 0.5rem;
-    cursor: pointer;
-  }
-
-  .menu-toggle span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--on-surface);
-    margin: 4px 0;
-    border-radius: 999px;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .nav-link {
-    color: var(--on-surface-variant);
-    text-decoration: none;
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    transition: color 0.2s ease;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid transparent;
-  }
-
-  .nav-link:hover {
-    color: var(--primary);
-  }
-
-  .nav-link.active {
-    color: var(--primary);
-    border-bottom-color: var(--primary);
-  }
-
-  .cta-button {
-    display: inline-block;
-    padding: 0.7rem 1.4rem;
-    border-radius: 0.4rem;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 100%);
-    color: var(--surface);
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    font-family: var(--font-mono);
-  }
-
-  .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(141, 209, 224, 0.3);
-  }
-
-  @media (max-width: 768px) {
-    .menu-toggle {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .nav-links {
-      position: fixed;
-      top: 70px;
-      left: 0;
-      right: 0;
-      background: rgba(19, 19, 19, 0.96);
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 1.5rem 1rem;
-      gap: 1rem;
-      transform: translateY(-120%);
-      opacity: 0;
-      pointer-events: none;
-      transition: transform 0.25s ease, opacity 0.25s ease;
-      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.22);
-    }
-
-    .nav-links.is-open {
-      transform: translateY(0);
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .nav-link {
-      display: block;
-      font-size: 0.95rem;
-      text-align: center;
-    }
-
-    .cta-button {
-      padding: 0.65rem 1rem;
-      font-size: 0.8rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .header-wrapper {
-      justify-content: space-between;
-      gap: 0.5rem;
-    }
-  }
-</style>

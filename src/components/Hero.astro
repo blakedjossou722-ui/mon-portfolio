@@ -1,147 +1,160 @@
-﻿<section id="hero" class="site-hero">
-  <div class="site-hero-content">
-    <div class="space-y-6 max-w-3xl">
-      <div class="inline-flex items-center gap-2 rounded-full bg-slate-900/70 border border-slate-700 px-4 py-2 text-sm text-slate-300">
-        <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
-        <span>Étudiant en 3ᵉ année • Développeur Web & Designer</span>
-      </div>
-      <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
-        Je conçois des sites <span class="text-gradient">modernes</span> & des visuels <span class="text-gradient">impactants</span>.
-      </h1>
-      <p class="text-slate-400 max-w-2xl leading-relaxed text-lg">
-        Combinaison unique entre la logique du développement web et la créativité du design graphique. Je transforme des idées en expériences numériques performantes, accessibles et élégantes.
-      </p>
+---
+import ResponsiveImage from './ResponsiveImage.astro';
 
-      <div class="flex flex-wrap gap-4">
-        <a href="#projects" class="btn-primary inline-flex items-center gap-2">
-          <span>Voir mes projets</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </a>
-        <a href="#contact" class="btn-secondary inline-flex items-center gap-2">
-          <span>Me contacter</span>
-        </a>
-      </div>
-    </div>
+export interface Props {
+  eyebrow?: string;
+  title?: string;
+  text?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+}
 
-    <div class="site-hero-panel glass-panel">
-      <div class="panel-header">
-        <span class="badge">Services</span>
-        <p class="text-slate-400 text-sm">UI/UX, intégration et optimisation de performances.</p>
+const {
+  eyebrow = "Étudiant en 3ᵉ année • Développeur Web & Designer",
+  title = "Je conçois des sites modernes & des visuels impactants.",
+  text = "Combinaison unique entre la logique du développement web et la créativité du design graphique. Je transforme des idées en expériences numériques performantes, accessibles et élégantes.",
+  imageSrc = "",
+  imageAlt = "Illustration de projet",
+  primaryLabel = "Voir mes projets",
+  primaryHref = "#projects",
+  secondaryLabel = "Me contacter",
+  secondaryHref = "#contact"
+} = Astro.props as Props;
+
+const techStack = [
+  { name: 'Astro', color: 'from-orange-500 to-amber-500' },
+  { name: 'React', color: 'from-cyan-500 to-blue-500' },
+  { name: 'TypeScript', color: 'from-blue-600 to-indigo-600' },
+  { name: 'Tailwind CSS', color: 'from-teal-400 to-cyan-500' },
+  { name: 'Node.js', color: 'from-emerald-500 to-green-600' },
+  { name: 'Figma', color: 'from-purple-500 to-pink-500' },
+];
+---
+
+<section id="hero" class="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Left Content -->
+      <div class="lg:col-span-7 flex flex-col items-start gap-6 reveal">
+        
+        <!-- Eyebrow Pill -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-950/60 border border-indigo-500/30 text-indigo-300 text-xs font-medium shadow-inner">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span>{eyebrow}</span>
+        </div>
+
+        <!-- Main Title -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading tracking-tight text-white leading-tight">
+          {title.includes('&') ? (
+            <>
+              {title.split('&')[0]} & <span class="text-gradient">{title.split('&')[1]}</span>
+            </>
+          ) : (
+            <span class="text-gradient">{title}</span>
+          )}
+        </h1>
+
+        <!-- Description Paragraph -->
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+          {text}
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap gap-4 pt-2">
+          {primaryLabel && (
+            <a
+              href={primaryHref}
+              class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:-translate-y-0.5 transition-all flex items-center gap-2"
+            >
+              <span>{primaryLabel}</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+          )}
+          {secondaryLabel && (
+            <a
+              href={secondaryHref}
+              class="px-6 py-3.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700/80 font-semibold hover:-translate-y-0.5 transition-all flex items-center gap-2"
+            >
+              <span>{secondaryLabel}</span>
+            </a>
+          )}
+        </div>
+
+        <!-- Tech Stack Pills -->
+        <div class="pt-6 border-t border-slate-800/80 w-full">
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3 font-mono">Technologies & Outils</p>
+          <div class="flex flex-wrap gap-2">
+            {techStack.map((tech) => (
+              <span class="px-3 py-1 text-xs font-medium bg-slate-900/90 text-slate-300 rounded-lg border border-slate-800 flex items-center gap-1.5">
+                <span class={`w-2 h-2 rounded-full bg-gradient-to-r ${tech.color}`}></span>
+                {tech.name}
+              </span>
+            ))}
+          </div>
+        </div>
+
       </div>
-      <div class="panel-list">
-        <div class="panel-item">
-          <h3 class="text-white font-semibold">Design & Branding</h3>
-          <p class="text-slate-400 text-sm">Maquettes interactives, identité visuelle et supports digitaux.</p>
-        </div>
-        <div class="panel-item">
-          <h3 class="text-white font-semibold">Sites Web</h3>
-          <p class="text-slate-400 text-sm">Sites responsives, animations modernes et SEO friendly.</p>
-        </div>
-        <div class="panel-item">
-          <h3 class="text-white font-semibold">Accessibilité</h3>
-          <p class="text-slate-400 text-sm">Normes WCAG, code propre et expériences inclusives.</p>
-        </div>
+
+      <!-- Right Visual Feature -->
+      <div class="lg:col-span-5 relative reveal reveal-delay-2">
+        {imageSrc ? (
+          <div class="glass-panel rounded-2xl p-4 overflow-hidden border border-white/10 shadow-2xl flex items-center justify-center">
+            <ResponsiveImage src={imageSrc} alt={imageAlt} class="w-full h-auto max-h-80 object-contain rounded-xl" />
+          </div>
+        ) : (
+          <div class="glass-panel rounded-2xl p-6 sm:p-8 relative z-10 border border-white/10 shadow-2xl">
+            <div class="flex items-center gap-4 mb-6 pb-6 border-b border-slate-800">
+              <div class="w-14 h-14 rounded-2xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-heading font-bold text-xl text-white">Blake DJOSSOU</h3>
+                <p class="text-xs text-indigo-300">Développeur Fullstack & Designer UI/UX</p>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800/80 flex items-start gap-3">
+                <div class="p-2 rounded-lg bg-indigo-500/10 text-indigo-400 mt-0.5">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="text-sm font-semibold text-white">Développement Web</h4>
+                  <p class="text-xs text-slate-400">Sites réactifs, interfaces dynamiques et APIs performantes.</p>
+                </div>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800/80 flex items-start gap-3">
+                <div class="p-2 rounded-lg bg-purple-500/10 text-purple-400 mt-0.5">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="text-sm font-semibold text-white">Design Visuel & Branding</h4>
+                  <p class="text-xs text-slate-400">Identité de marque, maquettes Figma et supports de communication.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+        <div class="absolute -inset-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-3xl blur-2xl opacity-20 -z-10"></div>
       </div>
+
     </div>
   </div>
 </section>
-
-<script>
-  (function() {
-    const nodes = Array.from(document.querySelectorAll('.site-hero .text-gradient'));
-    nodes.forEach((node, index) => {
-      node.style.transition = 'color 0.35s ease';
-      node.style.transitionDelay = `${index * 60}ms`;
-      node.classList.add('text-gradient-animation');
-    });
-  })();
-</script>
-
-<style>
-  .site-hero {
-    padding: 6rem 1.5rem 4rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .site-hero-content {
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(340px, 0.9fr);
-    gap: 3rem;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .glass-panel {
-    background: rgba(15, 23, 42, 0.72);
-    border: 1px solid rgba(148, 163, 184, 0.1);
-    backdrop-filter: blur(20px);
-    border-radius: 2rem;
-    padding: 2rem;
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
-  }
-
-  .panel-header {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.55rem 1rem;
-    border-radius: 9999px;
-    background: rgba(79, 70, 229, 0.15);
-    color: #a5b4fc;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .panel-list {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .panel-item {
-    padding: 1rem;
-    border-radius: 1.5rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(148, 163, 184, 0.12);
-  }
-
-  .btn-primary {
-    background: linear-gradient(135deg, #6366f1, #8b5cf6);
-    color: white;
-    padding: 1rem 1.5rem;
-    border-radius: 9999px;
-    font-weight: 700;
-  }
-
-  .btn-secondary {
-    background: rgba(15, 23, 42, 0.75);
-    color: #e2e8f0;
-    padding: 1rem 1.5rem;
-    border-radius: 9999px;
-    border: 1px solid rgba(148, 163, 184, 0.16);
-  }
-
-  .text-gradient {
-    background: linear-gradient(90deg, #8b5cf6, #22d3ee);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  @media (max-width: 1024px) {
-    .site-hero-content {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>

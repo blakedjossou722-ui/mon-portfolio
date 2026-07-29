@@ -3,15 +3,22 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
+import Services from '../components/Services.astro';
+import Projects from '../components/Projects.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="Portfolio | Développeur Web & Designer Graphique">
+<Layout
+  title="Blake DJOSSOU | Développeur Web & Designer Graphique"
+  description="Portfolio d'un étudiant en 3e année de formation en développement web (React, Astro, Node.js) et design graphique (Figma, Photoshop, Branding)."
+>
   <Header />
   <main class="flex-grow">
     <Hero />
     <About />
+    <Services />
+    <Projects />
     <Contact />
   </main>
   <Footer />
