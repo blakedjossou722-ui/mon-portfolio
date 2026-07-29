@@ -1,0 +1,290 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+---
+
+<Layout>
+  <Header />
+  <main id="main">
+    <Hero eyebrow="// PORTFOLIO" title="Des projets concrets qui marchent vraiment" text="Voici une sélection de mes réalisations : sites web performants, infrastructures scalables, design systems, et des trucs graphiques qui crassent. À chaque fois, le mélange de code et de créativité." imageSrc="/Professional.avif" imageAlt="Illustration professionnelle" />
+
+    <section class="section">
+      <div class="section-content">
+        <div class="projects-grid">
+              <article class="project-card">
+            <div class="project-image" style="background: linear-gradient(135deg, #226d7a 0%, #8dd1e0 100%);"></div>
+            <div class="project-info">
+              <h3>Xcms Architecture</h3>
+              <p>Une infrastructure web compacte et scalable. Design system complet avec composants réutilisables et documentation.</p>
+              <a href="/projects/xcms" class="project-link">Voir le projet →</a>
+            </div>
+          </article>
+
+              <article class="project-card">
+            <div class="project-image" style="background: linear-gradient(135deg, #1a1c1c 0%, #3f484a 100%);"></div>
+            <div class="project-info">
+              <h3>Quest-API</h3>
+              <p>Une API RESTful hyper-performante avec docs interactive et SDK pour JavaScript, Python, PHP. Build une fois, utilise partout.</p>
+              <a href="/projects/quest-api" class="project-link">Voir le projet →</a>
+            </div>
+          </article>
+
+              <article class="project-card">
+            <div class="project-image" style="background: linear-gradient(135deg, #2a2a2a 0%, #5a5a5a 100%);"></div>
+            <div class="project-info">
+              <h3>The Manifesto Of Modernism</h3>
+              <p>Une campagne éditoriale graphique : affiches, mise en page typographique, et toute la direction artistique. Le design et la théorie ensemble.</p>
+              <a href="/projects/manifesto" class="project-link">Voir le projet →</a>
+            </div>
+          </article>
+
+              <article class="project-card">
+            <div class="project-image" style="background: linear-gradient(135deg, #004e5a 0%, #1a6774 100%);"></div>
+            <div class="project-info">
+              <h3>Synapse UI</h3>
+              <p>Une librairie de composants React privée : accessible, thématisée, avec docs de fou. 50+ composants prêts à l'emploi.</p>
+              <a href="/projects/synapse-ui" class="project-link">Voir le projet →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section graphisme-section">
+      <div class="section-content">
+        <div class="section-heading">
+          <h2>Graphismes</h2>
+        </div>
+
+        <div class="graphisme-grid">
+        <article class="graphisme-card">
+          <h3>Affiches</h3>
+          <p>Des campagnes éditoriales et visuels qui crèvent l'écran. Chaque affiche raconte une histoire.</p>
+          <a href="/projects/affiches" class="project-link">Voir les affiches →</a>
+        </article>
+        <article class="graphisme-card">
+          <h3>Cartes de visite</h3>
+          <p>Des identités professionnelles qui marquent. On prend ta carte et on se dit 'ouh la', ça va le faire'.</p>
+          <a href="/projects/cartes-visite" class="project-link">Voir les cartes →</a>
+        </article>
+        <article class="graphisme-card">
+          <h3>Flyers</h3>
+          <p>Des supports print et numériques pour tes événements. Rien de morte, tout dynamique.</p>
+          <a href="/projects/flyers" class="project-link">Voir les flyers →</a>
+        </article>
+        <article class="graphisme-card">
+          <h3>Logos</h3>
+          <p>Des marques visuelles fortes et uniques. Pas de templates, que du sur-mesure.</p>
+          <a href="/projects/logos" class="project-link">Voir les logos →</a>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section other-projects">
+      <div class="section-content">
+        <div class="section-heading">
+          <h2>Autres Réalisations</h2>
+        </div>
+
+        <div class="other-grid">
+        <article class="other-card">
+          <h3>Portfolio Personnel</h3>
+          <p class="tech">Astro + Tailwind + JavaScript</p>
+          <p>Un site moderne et élégant. Programmation + Design pour une expérience cohérente.</p>
+        </article>
+        <article class="other-card">
+          <h3>Campagne Graphique</h3>
+          <p class="tech">Adobe CC + Motion Design</p>
+          <p>Affiches et supports de communication. Design cohérent, typographie impactante.</p>
+        </article>
+        <article class="other-card">
+          <h3>Landing Page</h3>
+          <p class="tech">React + Next.js + Vercel</p>
+          <p>Page de présentation optimisée. UX claire et design minimaliste pour la conversion.</p>
+        </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .section-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+
+  .projects-hero {
+    padding: 1.5rem 0 3rem;
+    text-align: center;
+  }
+
+  .projects-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .intro-text {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+    color: var(--on-surface-variant);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+    padding: var(--space-xl) 0;
+  }
+
+  .project-card {
+    background-color: rgba(42, 42, 42, 0.4);
+    border: 1px solid var(--outline);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .project-card:hover {
+    border-color: var(--primary);
+    background-color: rgba(42, 42, 42, 0.6);
+  }
+
+  .project-image {
+    width: 100%;
+    height: 280px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .project-info {
+    padding: var(--space-md);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card h3 {
+    color: var(--on-surface);
+    margin-top: 0;
+    margin-bottom: var(--space-sm);
+  }
+
+  .project-card p {
+    flex: 1;
+    color: var(--on-surface-variant);
+    font-size: 0.95rem;
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary);
+    font-weight: 500;
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--outline);
+    transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .project-link:hover {
+    color: var(--on-surface);
+  }
+
+  .graphisme-section {
+    padding: var(--space-xl) 0;
+  }
+
+  .graphisme-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .graphisme-card {
+    background-color: rgba(42, 42, 42, 0.4);
+    border: 1px solid var(--outline);
+    border-radius: 0.75rem;
+    padding: var(--space-md);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .graphisme-card:hover {
+    border-color: var(--primary);
+    background-color: rgba(42, 42, 42, 0.6);
+  }
+
+  .graphisme-card h3 {
+    color: var(--on-surface);
+    margin-bottom: 0.75rem;
+  }
+
+  .graphisme-card p {
+    color: var(--on-surface-variant);
+    margin-bottom: var(--space-md);
+  }
+
+  .other-projects {
+    padding: var(--space-xl) 0;
+  }
+
+  .other-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .other-card {
+    background-color: rgba(42, 42, 42, 0.4);
+    border: 1px solid var(--outline);
+    border-radius: 0.75rem;
+    padding: var(--space-md);
+  }
+
+  .other-card h3 {
+    color: var(--on-surface);
+    margin-bottom: 0.75rem;
+  }
+
+  .other-card .tech {
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  @media (max-width: 950px) {
+    .projects-grid,
+    .graphisme-grid,
+    .other-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  </style>
+
+  <style>
+    /* Reduce vertical spacing between sections for tighter layout */
+    .section {
+      padding-top: var(--space-md);
+      padding-bottom: var(--space-md);
+    }
+
+    .section + .section {
+      margin-top: calc(var(--space-md) / 2);
+    }
+
+    .section-heading {
+      margin-bottom: 0.6rem;
+    }
+  </style>

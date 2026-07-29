@@ -1,0 +1,368 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Header />
+  <main id="main">
+    <Hero eyebrow="// QUI JE SUIS" title="Blake DJOSSOU — coder et designer, pas l'un ou l'autre" text="Je fais deux choses qui se croisent : je code des sites web performants et je crée des identités visuelles qui marquent. Ensemble, c'est plus fort." imageSrc="/Responsive.png" imageAlt="Une illustration moderne et responsive" />
+
+    <!-- Section Intro -->
+    <section class="section">
+      <div class="section-content">
+        <div class="intro">
+          <h2 class="section-title">Deux compétences qui se renforcent</h2>
+          <p class="intro-text">
+            Je suis développeur JavaScript/TypeScript ET designer graphique. Pas l'un ou l'autre — les deux. C'est mon truc. Quand je code, je pense design. Quand je design, je pense code et performance. Résultat : des produits qui sont beaux ET qui fonctionnent vraiment bien.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Codeur -->
+    <section class="section">
+      <div class="section-content">
+        <h2 class="section-title">Le code, c'est mon langage principal</h2>
+        <p class="section-subtitle">JavaScript, TypeScript, React, Next.js, Astro. J'aime quand ça scale, quand ça fonctionne, quand c'est propre.</p>
+        
+        <div class="tech-stack">
+          <div class="tech-row three-up">
+            <div class="tech-category">
+              <h3>Frontend</h3>
+              <div class="tech-grid">
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">TypeScript</span>
+                <span class="tech-badge">React</span>
+                <span class="tech-badge">Next.js</span>
+                <span class="tech-badge">Astro</span>
+                <span class="tech-badge">Tailwind CSS</span>
+                <span class="tech-badge">CSS Animations</span>
+                <span class="tech-badge">WebGL</span>
+              </div>
+            </div>
+            
+            <div class="tech-category">
+              <h3>Backend</h3>
+              <div class="tech-grid">
+                <span class="tech-badge">Node.js</span>
+                <span class="tech-badge">Express</span>
+                <span class="tech-badge">REST APIs</span>
+                <span class="tech-badge">GraphQL</span>
+                <span class="tech-badge">MongoDB</span>
+                <span class="tech-badge">PostgreSQL</span>
+                <span class="tech-badge">Firebase</span>
+                <span class="tech-badge">Supabase</span>
+              </div>
+            </div>
+
+            <div class="tech-category">
+              <h3>DevOps & Tools</h3>
+              <div class="tech-grid">
+                <span class="tech-badge">Git</span>
+                <span class="tech-badge">GitHub</span>
+                <span class="tech-badge">VS Code</span>
+                <span class="tech-badge">Docker</span>
+                <span class="tech-badge">Vercel</span>
+                <span class="tech-badge">Netlify</span>
+                <span class="tech-badge">npm/pnpm</span>
+                <span class="tech-badge">Linux</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="tech-description">
+          Je me spécialise dans <strong>l'interface moderne</strong> et <strong>l'architecture scalable</strong>. Accessible, performant, et prêt pour demain. Pas de dette technique chez moi.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section Designer -->
+    <section class="section">
+      <div class="section-content">
+        <h2 class="section-title">Le design, c'est mon deuxième pouvoir</h2>
+        <p class="section-subtitle">Branding, identité visuelle, affiches — des designs qui racontent une histoire et qui convertissent.</p>
+        
+        <div class="tech-stack">
+          <div class="tech-row">
+            <div class="tech-category">
+              <h3>Design Software</h3>
+              <div class="tech-grid">
+                <span class="tech-badge">Figma</span>
+                <span class="tech-badge">Adobe XD</span>
+                <span class="tech-badge">Photoshop</span>
+                <span class="tech-badge">Illustrator</span>
+                <span class="tech-badge">Canva Pro</span>
+                <span class="tech-badge">Blender</span>
+                <span class="tech-badge">Affinity Designer</span>
+                <span class="tech-badge">Procreate</span>
+              </div>
+            </div>
+            
+            <div class="tech-category">
+              <h3>Design Specialties</h3>
+              <div class="tech-grid">
+                <span class="tech-badge">UI/UX</span>
+                <span class="tech-badge">Branding</span>
+                <span class="tech-badge">Logo Design</span>
+                <span class="tech-badge">Print Design</span>
+                <span class="tech-badge">Typography</span>
+                <span class="tech-badge">Color Theory</span>
+                <span class="tech-badge">Composition</span>
+                <span class="tech-badge">Motion Graphics</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="tech-description">
+          Un bon design ne se remarque pas — il se <strong>ressent</strong>. Je crée des identités visuelles qui collent, cohérentes sur tout, et qui supportent vraiment votre message.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section Philosophie -->
+    <section class="section">
+      <div class="section-content">
+        <h2 class="section-title">Comment je bosse</h2>
+        
+        <div class="philosophy-grid">
+          <div class="philosophy-card">
+            <h3><svg class="philosophy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="11"></circle><path d="M12 16v-4m0-4v.01"></path></svg> Intention</h3>
+            <p>Chaque pixel, chaque ligne de code a une raison d'être. Rien au hasard.</p>
+          </div>
+          
+          <div class="philosophy-card">
+            <h3><svg class="philosophy-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Performance d'abord</h3>
+            <p>Un beau site lent ? Non merci. La vitesse, c'est un feature, pas une option.</p>
+          </div>
+          
+          <div class="philosophy-card">
+            <h3><svg class="philosophy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg> Curieux</h3>
+            <p>Les techs changent vite. Je suis toujours en train d'apprendre, d'expérimenter, d'innover.</p>
+          </div>
+          
+          <div class="philosophy-card">
+            <h3><svg class="philosophy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 18a2 2 0 1 0-4 0"></path><path d="M5 21h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2z"></path></svg> À l'écoute</h3>
+            <p>Les meilleurs projets viennent d'une vraie conversation. J'écoute, je comprends, puis je conseille.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section CTA -->
+    <section class="section">
+      <div class="section-content">
+        <div class="cta-box">
+          <h2>Prêt à créer quelque chose d'awesome ?</h2>
+          <p>Je suis là pour ça. Site web, rebrand, redesign — on peut en parler.</p>
+          <a href="/contact" class="cta-button">Parlons du projet</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .section-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+
+  .intro {
+    text-align: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .intro-text {
+    max-width: 760px;
+    margin: 0.75rem auto 0;
+    color: var(--on-surface-variant);
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--on-surface);
+    margin-bottom: var(--space-md);
+    text-align: center;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: var(--on-surface-variant);
+    font-size: 1.05rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .tech-stack {
+    display: grid;
+    gap: 1.25rem;
+    margin: var(--space-lg) 0;
+  }
+
+  .tech-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .tech-row.three-up {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .tech-category {
+    background-color: rgba(42, 42, 42, 0.28);
+    border: 1px solid var(--outline);
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    min-height: 140px;
+    gap: 0.5rem;
+  }
+
+  .tech-category h3 {
+    color: var(--primary);
+    margin-bottom: var(--space-md);
+    font-size: 1.1rem;
+  }
+
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 0.5rem;
+    align-items: center;
+    grid-auto-rows: minmax(24px, auto);
+  }
+
+  .tech-badge {
+    background: linear-gradient(135deg, rgba(141, 209, 224, 0.1), rgba(141, 209, 224, 0.05));
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    white-space: normal;
+    text-align: center;
+  }
+
+  .tech-description {
+    color: var(--on-surface-variant);
+    line-height: 1.8;
+    margin-top: var(--space-lg);
+    font-size: 1.05rem;
+  }
+
+  .philosophy-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    margin: var(--space-md) 0;
+  }
+
+  .philosophy-card {
+    background-color: rgba(42, 42, 42, 0.38);
+    border: 1px solid var(--outline);
+    border-radius: 0.6rem;
+    padding: 1.5rem;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .philosophy-card h3 {
+    color: var(--on-surface);
+    margin-bottom: 0.75rem;
+    font-size: 1.15rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .philosophy-icon {
+    width: 1.3em;
+    height: 1.3em;
+    color: var(--primary);
+    flex-shrink: 0;
+  }
+
+  .philosophy-card p {
+    color: var(--on-surface-variant);
+    line-height: 1.6;
+    font-size: 1rem;
+    margin: 0;
+    text-align: left;
+    word-spacing: normal;
+  }
+
+  .cta-box {
+    background: linear-gradient(135deg, rgba(141, 209, 224, 0.1), rgba(141, 209, 224, 0.05));
+    border: 1px solid var(--primary);
+    border-radius: 0.75rem;
+    padding: 1.5rem 2rem;
+    text-align: center;
+  }
+
+  .cta-box h2 {
+    color: var(--on-surface);
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-box p {
+    color: var(--on-surface-variant);
+    margin-bottom: 1rem;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary), #5bb5c9);
+    color: var(--surface);
+    padding: 0.75rem 2rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(141, 209, 224, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 1.5rem;
+    }
+
+    .philosophy-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tech-row,
+    .tech-row.three-up {
+      grid-template-columns: 1fr;
+    }
+
+    .tech-grid {
+      gap: 0.5rem;
+    }
+
+    .tech-badge {
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+    }
+  }
+</style>

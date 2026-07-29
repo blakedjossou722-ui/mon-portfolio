@@ -1,0 +1,38 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+---
+
+<Layout>
+  <Header />
+  <main>
+    <section class="section project-detail-hero">
+      <div class="section-heading">
+        <span class="eyebrow">// PROJET</span>
+        <h1>Quest-API</h1>
+        <p class="intro-text">Plateforme d'API imaginaire pour explorer une architecture d'expérience utilisateur moderne.</p>
+      </div>
+
+      <div class="project-overview">
+        <p>Illustrations de flux d'authentification, documentation interactive et structure REST/GraphQL. Idéal pour un design technique et net.</p>
+        <p>Ce projet est une démonstration de mon travail de conception et de développement. Si vous souhaitez voir des maquettes, des prototypes ou une stratégie de mise en œuvre, contactez-moi directement.</p>
+      </div>
+
+      <div class="project-actions">
+        <a href="/projects" class="button secondary">Retour aux projets</a>
+        <a href="/contact" class="button primary">Me contacter</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .project-detail-hero { padding: var(--space-xl) 0; }
+  .intro-text { max-width: 760px; color: var(--on-surface-variant); }
+  .project-overview { margin-top: var(--space-lg); background: rgba(42,42,42,0.35); border:1px solid var(--outline); border-radius:1rem; padding:var(--space-lg); }
+  .project-actions { display:flex; gap:var(--space-md); flex-wrap:wrap; margin-top:var(--space-xl); }
+  .button.secondary { background:transparent; border-color: rgba(141, 209, 224, 0.3); color: var(--on-surface); }
+  @media (max-width:768px) { .project-actions { flex-direction:column; } }
+</style>

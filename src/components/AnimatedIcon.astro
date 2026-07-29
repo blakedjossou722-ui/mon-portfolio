@@ -1,0 +1,115 @@
+---
+const { name = 'spark', size = '48' } = Astro.props;
+---
+
+<style>
+  .animated-icon {
+    width: var(--icon-size, 48px);
+    height: var(--icon-size, 48px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
+    color: var(--primary);
+  }
+
+  .animated-icon:hover {
+    transform: translateY(-4px) scale(1.05);
+    filter: drop-shadow(0 0 10px rgba(141, 209, 224, 0.6));
+  }
+
+  .animated-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke: currentColor;
+    fill: none;
+  }
+</style>
+
+{ name === 'html' && (
+  <div class="animated-icon" style="--icon-size: ${size}px;" aria-label="HTML icon">
+    <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 3h16l-1.5 17.5L12 21l-6.5-0.5L4 3z" />
+      <path d="M8.5 7h7" />
+      <path d="M8.5 15.5L12 14.2l3.5 1.3" />
+      <path d="M8.5 11.5L10.5 10.9L12 11.5" />
+    </svg>
+  </div>
+) }
+{ name === 'css' && (
+  <div class="animated-icon" style="--icon-size: ${size}px;" aria-label="CSS icon">
+    <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 3h16l-1.5 17.5L12 21l-6.5-0.5L4 3z" />
+      <path d="M8.5 7h7" />
+      <path d="M8.5 12h7" />
+      <path d="M8.5 16h4" />
+    </svg>
+  </div>
+) }
+{ name === 'js' && (
+  <div class="animated-icon" style="--icon-size: ${size}px;" aria-label="JavaScript icon">
+    <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 7h3l1 2h3l1-2h3" />
+      <path d="M7.5 17.8l1.5-1c1 0.8 1.8 0.8 3 0.2" />
+      <path d="M15.5 17.8l-1.5-1c-1-0.8-1.8-0.8-3-0.2" />
+      <path d="M4 4h16v16H4V4z" />
+    </svg>
+  </div>
+) }
+{ name === 'astro' && (
+  <div class="animated-icon" style="--icon-size: ${size}px;" aria-label="Astro icon">
+    <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="8" />
+      <path d="M12 4v16" />
+      <path d="M4 12h16" />
+      <path d="M7 7l10 10" />
+      <path d="M17 7L7 17" />
+    </svg>
+  </div>
+) }
+{ name === 'brush' && (
+  <div class="animated-icon" style="--icon-size: ${size}px;" aria-label="Brush icon">
+    <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 14l10-10 4 4-10 10z" />
+      <path d="M15 6l3 3" />
+      <path d="M8 16s-1.5 3-3 3c-1.5 0-2-2-2-2s1.5-1.5 3-3" />
+    </svg>
+  </div>
+) }
+{ name === 'illustrator' && (
+  <div class="animated-icon" style="--icon-size: ${size}px;" aria-label="Illustrator icon">
+    <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="5" y="5" width="14" height="14" rx="3" />
+      <path d="M10.5 15.5h3" />
+      <path d="M10.5 11.5h3" />
+    </svg>
+  </div>
+) }
+{ name === 'mail' && (
+  <div class="animated-icon" style="--icon-size: ${size}px;" aria-label="Email icon">
+    <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 6h16v12H4z" />
+      <path d="M4 6l8 6 8-6" />
+    </svg>
+  </div>
+) }
+{ name === 'linkedin' && (
+  <div class="animated-icon" style="--icon-size: ${size}px;" aria-label="LinkedIn icon">
+    <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4" y="4" width="16" height="16" rx="3" />
+      <path d="M8 10.5v6" />
+      <path d="M8 9V9.01" />
+      <path d="M12.5 14.5v2.5" />
+      <path d="M12.5 10.5v2.5" />
+      <path d="M12.5 12.5h2" />
+    </svg>
+  </div>
+) }
+{ name === 'whatsapp' && (
+  <div class="animated-icon" style="--icon-size: ${size}px;" aria-label="WhatsApp icon">
+    <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4.5 19.5 4 21l1.5-0.5a9 9 0 0 0 14-12 9 9 0 0 0-12 14z" />
+      <path d="M16.5 13.5c-0.5 1.5-1.9 2.8-3.6 3.1-1.6 0.3-3.2-0.4-4.3-1.7-0.9-1.1-1.3-2.5-1.1-3.9 0.1-0.7 0.3-0.9 0.7-1.1 0.3-0.2 0.6-0.3 1-0.3 0.2 0 0.4 0 0.6 0 0.3 0 0.6-0.1 0.8 0.1 0.6 0.3 1.3 0.8 1.9 1.1 0.4 0.2 0.7 0.4 1.1 0.4 0.4 0 0.6-0.2 0.8-0.4 0.2-0.2 0.4-0.4 0.6-0.5 0.2-0.1 0.4-0.2 0.6-0.2 0.2 0 0.4 0 0.6 0.1 0.3 0.1 0.5 0.3 0.7 0.5 0.2 0.2 0.3 0.4 0.3 0.7 0 0.3-0.1 0.6-0.2 0.8z" />
+    </svg>
+  </div>
+) }

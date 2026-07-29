@@ -1,0 +1,41 @@
+---
+export interface Props {
+  src: string;
+  alt?: string;
+  width?: number;
+  height?: number;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+  sizes?: string;
+  fetchpriority?: 'high' | 'low' | 'auto';
+}
+const {
+  src,
+  alt = '',
+  width,
+  height,
+  class: cls = '',
+  loading = 'lazy',
+  sizes = '100vw',
+  fetchpriority = 'auto'
+} = Astro.props as Props;
+
+const avif = src.replace(/\.(png|jpe?g|gif)$/i, '.avif');
+const webp = src.replace(/\.(png|jpe?g|gif)$/i, '.webp');
+---
+
+<picture>
+  <source srcset={avif} type="image/avif" />
+  <source srcset={webp} type="image/webp" />
+  <img
+    src={src}
+    alt={alt}
+    loading={loading}
+    decoding="async"
+    fetchpriority={fetchpriority}
+    sizes={sizes}
+    class={cls}
+    width={width}
+    height={height}
+  />
+</picture>

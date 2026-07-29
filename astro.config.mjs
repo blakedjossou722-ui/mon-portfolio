@@ -10,6 +10,16 @@ export default defineConfig({
     port: 4321
   },
   vite: {
+    server: {
+      watch: {
+        // Use polling on Windows to avoid EBUSY "resource busy or locked" errors
+        usePolling: true,
+        interval: 100
+      }
+    },
     plugins: [tailwindcss()]
+  },
+  devToolbar: {
+    enabled: false
   }
 });

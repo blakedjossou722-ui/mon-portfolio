@@ -1,0 +1,157 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Header />
+  <main id="main">
+    <Hero eyebrow="// CONTACT" title="Vous avez une idée ? On peut en parler." text="Envoyez-moi un message, on verra si on est une bonne paire. Proposition de projet en 24-48h, sérieusement." imageSrc="/Your.png" imageAlt="Illustration personnalisée" />
+
+    <section class="section">
+      <div class="section-grid">
+        <div class="card">
+          <h3>Parlez-moi directement</h3>
+          <p>Email : blakedjossou722@gmail.com</p>
+          <p><a href="mailto:blakedjossou722@gmail.com">M'envoyer un email</a></p>
+          <p><a href="https://wa.me/2290153298119" target="_blank" rel="noopener">Ou sur WhatsApp</a></p>
+        </div>
+
+        <div class="card">
+          <h3>Ou utilisez ce formulaire</h3>
+          <p class="contact-hint">C'est plus rapide</p>
+          <form id="contact-form" class="contact-form" aria-label="Formulaire de contact">
+            <div class="form-grid">
+              <label>
+                <span>Prénom</span>
+                <input type="text" name="prenom" placeholder="Genre Jean" required aria-label="Prénom" aria-required="true" />
+              </label>
+              <label>
+                <span>Nom</span>
+                <input type="text" name="nom" placeholder="Genre Dupont" required aria-label="Nom" aria-required="true" />
+              </label>
+            </div>
+            <label>
+              <span>Objet du message</span>
+              <input type="text" name="objet" placeholder="Genre 'Je veux un site web'" required aria-label="Objet" aria-required="true" />
+            </label>
+            <label>
+              <span>Dites-moi tout</span>
+              <textarea name="message" rows="6" placeholder="C'est une startup, on veut faire... Et on veut lancer en..." required aria-label="Message" aria-required="true"></textarea>
+            </label>
+            <button class="button primary" type="submit">Envoyer</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .intro-text {
+    max-width: 760px;
+    color: var(--on-surface-variant);
+  }
+
+  .section-grid {
+    display: grid;
+    gap: var(--space-lg);
+    grid-template-columns: 1.2fr 1fr;
+  }
+
+  .card {
+    background-color: rgba(42, 42, 42, 0.4);
+    border: 1px solid var(--outline);
+    border-radius: 0.75rem;
+    padding: var(--space-lg);
+  }
+
+  .card h3 {
+    color: var(--on-surface);
+    margin-bottom: var(--space-sm);
+  }
+
+  .card p,
+  .contact-hint {
+    color: var(--on-surface-variant);
+    line-height: 1.8;
+  }
+
+  .contact-hint {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--primary);
+  }
+
+  .contact-form {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .contact-form label {
+    display: grid;
+    gap: 0.5rem;
+    color: var(--on-surface);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--outline);
+    background-color: rgba(42, 42, 42, 0.45);
+    color: var(--on-surface);
+    font: inherit;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .button.primary {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .section-grid,
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(contactForm);
+      const prenom = formData.get('prenom') || '';
+      const nom = formData.get('nom') || '';
+      const objet = formData.get('objet') || 'Nouveau message depuis le portfolio';
+      const message = formData.get('message') || '';
+      const subject = `Portfolio: ${objet}`;
+      const body = `Bonjour Blake,%0D%0A%0D%0A${encodeURIComponent(message)}%0D%0A%0D%0APrénom: ${encodeURIComponent(prenom)}%0D%0ANom: ${encodeURIComponent(nom)}`;
+      window.location.href = `mailto:blakedjossou722@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    });
+  }
+</script>

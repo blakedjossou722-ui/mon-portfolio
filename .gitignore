@@ -15,7 +15,14 @@ pnpm-debug.log*
 
 # environment variables
 .env
+.env.local
 .env.production
+
+# temporary/cache artifacts
+.tmp/
+build_log.txt
+build_out.txt
+lighthouse-*.json
 
 # macOS-specific files
 .DS_Store

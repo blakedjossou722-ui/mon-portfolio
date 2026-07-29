@@ -9,11 +9,15 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "fetch-fonts": "node scripts/download-fonts.js",
     "astro": "astro"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.1.0",
     "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "lighthouse": "^13.4.1"
   }
 }
