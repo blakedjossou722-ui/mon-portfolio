@@ -114,20 +114,39 @@ import ResponsiveImage from '../components/ResponsiveImage.astro';
 
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 reveal">
           {[
-            { name: 'Astro', img: '/React.png' },
             { name: 'React', img: '/React.png' },
             { name: 'TypeScript', img: '/TypeScript.png' },
             { name: 'Tailwind CSS', img: '/tailwind.png' },
             { name: 'Node.js', img: '/Node.js.png' },
+            { name: 'HTML5', img: '/html5.png' },
+            { name: 'CSS', img: '/CSS.png' },
+            { name: 'JavaScript', img: '/JavaScript.png' },
+            { name: 'Laravel', img: '/Laravel.png' },
+            { name: 'PHP', img: '/PHP.png' },
+            { name: 'Python', img: '/Python.png' },
+            { name: 'Java', img: '/Java.png' },
+            { name: 'C++', img: '/C++.png' },
+            { name: 'MongoDB', img: '/MongoDB.png' },
+            { name: 'PostgreSQL', img: '/PostgreSQL.png' },
+            { name: 'MySQL', img: '/mysql.png' },
+            { name: 'Firebase', img: '/Firebase.png' },
+            { name: 'Supabase', img: '/Supabase.png' },
             { name: 'Figma', img: '/Figma.png' },
             { name: 'Photoshop', img: '/Photoshop.png' },
             { name: 'Illustrator', img: '/Illustrator.png' },
+            { name: 'Canva', img: '/Canva.png' },
+            { name: 'Blender', img: '/Blender.png' },
+            { name: 'Affinity Designer', img: '/Affinity_Designer.png' },
+            { name: 'Procreate', img: '/Procreate.png' },
             { name: 'Git', img: '/Git.png' },
             { name: 'GitHub', img: '/GitHub.png' },
             { name: 'Docker', img: '/Docker.png' },
             { name: 'VS Code', img: '/vscode.png' },
+            { name: 'Vercel', img: '/Vercel.png' },
+            { name: 'GraphQL', img: '/GraphQL.png' },
+            { name: 'REST APIs', img: '/rest-apis.png' },
           ].map((tool) => (
-            <div class="glass-card p-4 rounded-xl border border-white/10 flex items-center gap-3 hover:border-indigo-500/40 transition-colors">
+            <div class="tool-card glass-card p-4 rounded-xl border border-white/10 flex items-center gap-3">
               <ResponsiveImage src={tool.img} alt={tool.name} width={32} height={32} class="w-8 h-8 object-contain shrink-0" />
               <span class="text-xs font-semibold text-slate-200 truncate">{tool.name}</span>
             </div>
@@ -161,3 +180,14 @@ import ResponsiveImage from '../components/ResponsiveImage.astro';
   </main>
   <Footer />
 </Layout>
+
+<style>
+  .tool-card {
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .tool-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    border-color: rgba(129, 140, 248, .65);
+    box-shadow: 0 14px 30px -12px rgba(129, 140, 248, .7);
+  }
+</style>

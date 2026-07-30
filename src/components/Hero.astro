@@ -14,7 +14,7 @@ export interface Props {
 }
 
 const {
-  eyebrow = "Étudiant en 3ᵉ année • Développeur Web & Designer",
+  eyebrow = "Développeur Web Full-Stack & Designer Graphique",
   title = "Je conçois des sites modernes & des visuels impactants.",
   text = "Combinaison unique entre la logique du développement web et la créativité du design graphique. Je transforme des idées en expériences numériques performantes, accessibles et élégantes.",
   imageSrc = "",
@@ -40,7 +40,7 @@ const techStack = [
     <div class="grid lg:grid-cols-12 gap-12 items-center">
       
       <!-- Left Content -->
-      <div class="lg:col-span-7 flex flex-col items-start gap-6 reveal">
+      <div class="lg:col-span-7 flex flex-col items-start gap-6 initial-reveal">
         
         <!-- Eyebrow Pill -->
         <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-950/60 border border-indigo-500/30 text-indigo-300 text-xs font-medium shadow-inner">
@@ -106,7 +106,7 @@ const techStack = [
       </div>
 
       <!-- Right Visual Feature -->
-      <div class="lg:col-span-5 relative reveal reveal-delay-2">
+      <div class="lg:col-span-5 relative initial-reveal initial-reveal-delay">
         {imageSrc ? (
           <div class="glass-panel rounded-2xl p-4 overflow-hidden border border-white/10 shadow-2xl flex items-center justify-center">
             <ResponsiveImage src={imageSrc} alt={imageAlt} class="w-full h-auto max-h-80 object-contain rounded-xl" />

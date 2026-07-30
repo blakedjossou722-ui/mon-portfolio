@@ -19,6 +19,7 @@ import Footer from '../components/Footer.astro';
       imageAlt="Illustration contact"
       primaryLabel="Parler directement"
       primaryHref="#contact-form"
+      secondaryLabel=""
     />
 
     <section class="py-16 border-t border-slate-800/80">
@@ -107,6 +108,18 @@ import Footer from '../components/Footer.astro';
               </div>
 
               <div>
+                <label for="email" class="block text-xs font-mono font-semibold text-slate-300 uppercase mb-2">E-mail *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="jean@exemple.com"
+                  class="w-full px-4 py-3 bg-slate-900/80 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-indigo-500 transition-colors"
+                />
+              </div>
+
+              <div>
                 <label for="objet" class="block text-xs font-mono font-semibold text-slate-300 uppercase mb-2">Objet du message *</label>
                 <input
                   type="text"
@@ -162,6 +175,7 @@ import Footer from '../components/Footer.astro';
         const nom = formData.get('nom') || '';
         const objet = formData.get('objet') || 'Nouveau message';
         const message = formData.get('message') || '';
+        const email = formData.get('email') || '';
 
         if (formStatus) {
           formStatus.className = 'p-4 rounded-xl text-sm font-medium border bg-indigo-500/10 border-indigo-500/30 text-indigo-300 mb-4 block';
@@ -169,7 +183,7 @@ import Footer from '../components/Footer.astro';
         }
 
         const subject = `[Portfolio] ${objet}`;
-        const body = `Bonjour Blake,\n\n${message}\n\nDe: ${prenom} ${nom}`;
+        const body = `Bonjour Blake,\n\n${message}\n\nDe : ${prenom} ${nom}\nE-mail : ${email}`;
         
         setTimeout(() => {
           window.location.href = `mailto:blakedjossou722@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;

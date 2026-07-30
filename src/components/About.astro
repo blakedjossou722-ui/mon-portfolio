@@ -1,8 +1,8 @@
 ---
 const stats = [
-  { value: '3ᵉ', label: 'Année de Formation', desc: 'Développement Web & Design' },
-  { value: '100%', label: 'Implication', desc: 'Code propre & Design soigné' },
-  { value: '2-in-1', label: 'Double Compétence', desc: 'Logique dev + Sensibilité UX' },
+  { value: '12', label: 'Projets réalisés', desc: 'Web & création visuelle', suffix: '+' },
+  { value: '30', label: 'Technologies maîtrisées', desc: 'Code, data & design', suffix: '+' },
+  { value: '2', label: 'Expertises complémentaires', desc: 'Développement & design', suffix: '' },
 ];
 ---
 
@@ -10,7 +10,7 @@ const stats = [
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Section Heading -->
-    <div class="max-w-3xl mb-12">
+    <div class="max-w-3xl mb-12 initial-reveal">
       <span class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-2 inline-block">
         À propos de moi
       </span>
@@ -25,7 +25,7 @@ const stats = [
       <!-- Bio Narrative -->
       <div class="lg:col-span-7 glass-card rounded-2xl p-8 border border-white/10 flex flex-col justify-between space-y-6">
         <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
-          Actuellement étudiant en 3ᵉ année de formation en <strong class="text-white">développement web</strong> et <strong class="text-white">design graphique</strong>, je me passionne pour la création d'expériences numériques complètes. 
+          Développeur web full-stack et designer graphique, je me passionne pour la création d'expériences numériques complètes.
         </p>
         <p class="text-slate-400 text-base leading-relaxed">
           Ma force réside dans la synergie entre deux univers : construire une architecture front-end & back-end solide et performante tout en apportant un soin extrême aux détails visuels, aux typographies et à l'expérience utilisateur.
@@ -52,7 +52,7 @@ const stats = [
         {stats.map((stat) => (
           <div class="glass-card glass-card-hover rounded-2xl p-6 border border-white/10 flex items-center gap-5">
             <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-indigo-500/30 flex items-center justify-center font-heading font-extrabold text-2xl text-indigo-400 shrink-0">
-              {stat.value}
+              <span class="stat-count" data-count={stat.value} data-suffix={stat.suffix}>0</span>
             </div>
             <div>
               <h3 class="font-heading font-bold text-lg text-white">{stat.label}</h3>
@@ -65,5 +65,27 @@ const stats = [
     </div>
   </div>
 </section>
-  </div>
-</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const counters = document.querySelectorAll<HTMLElement>('.stat-count');
+    const observer = new IntersectionObserver((entries, instance) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const counter = entry.target as HTMLElement;
+        const target = Number(counter.dataset.count || 0);
+        const suffix = counter.dataset.suffix || '';
+        const startedAt = performance.now();
+        const duration = 700;
+        const update = (now: number) => {
+          const progress = Math.min((now - startedAt) / duration, 1);
+          counter.textContent = `${Math.round(target * progress)}${suffix}`;
+          if (progress < 1) requestAnimationFrame(update);
+        };
+        requestAnimationFrame(update);
+        instance.unobserve(counter);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach((counter) => observer.observe(counter));
+  });
+</script>
