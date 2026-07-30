@@ -8,7 +8,7 @@ interface Props {
 
 const {
   title = "Portfolio | Développeur Web & Designer Graphique",
-  description = "Portfolio professionnel d'un étudiant en 3e année de développement web et design graphique. Découvrez mes projets, compétences et créations visuelles."
+  description = "Portfolio professionnel de Blake DJOSSOU, développeur web full-stack et créateur visuel. Découvrez ses projets, compétences et créations visuelles."
 } = Astro.props as Props;
 
 const siteUrl = Astro.site ? Astro.site.origin : 'https://mon-portfolio.vercel.app';
@@ -45,6 +45,9 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
     <title>{title}</title>
   </head>
   <body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-indigo-500 selection:text-white antialiased relative overflow-x-hidden">
+    <div class="reading-progress" aria-hidden="true"></div>
+    <div class="page-transition" aria-hidden="true"></div>
+    <div class="custom-cursor" aria-hidden="true"></div>
     <!-- Ambient Background Lighting -->
     <div class="fixed inset-0 pointer-events-none z-0 glow-gradient"></div>
     <div class="fixed top-1/4 -left-48 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -53,10 +56,13 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
     <div class="relative z-10 flex flex-col min-h-screen">
       <slot />
     </div>
+    <button class="back-to-top" type="button" aria-label="Revenir en haut de la page">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m18 15-6-6-6 6" /></svg>
+    </button>
 
     <!-- Ultra-lightweight Scroll Reveal Observer -->
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
+      window.addEventListener('load', () => {
         const revealElements = document.querySelectorAll('.reveal');
         if ('IntersectionObserver' in window) {
           const observer = new IntersectionObserver((entries) => {
@@ -66,13 +72,46 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
                 observer.unobserve(entry.target);
               }
             });
-          }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+          }, { threshold: 0 });
 
           revealElements.forEach(el => observer.observe(el));
         } else {
           revealElements.forEach(el => el.classList.add('is-visible'));
         }
-      });
+        const progress = document.querySelector('.reading-progress') as HTMLElement | null;
+        const backToTop = document.querySelector('.back-to-top') as HTMLButtonElement | null;
+        const cursor = document.querySelector('.custom-cursor') as HTMLElement | null;
+
+        const updateScrollUI = () => {
+          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+          if (progress) progress.style.transform = `scaleX(${maxScroll > 0 ? window.scrollY / maxScroll : 0})`;
+          backToTop?.classList.toggle('is-visible', window.scrollY > 300);
+        };
+
+        updateScrollUI();
+        window.addEventListener('scroll', updateScrollUI, { passive: true });
+        backToTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        if (cursor && window.matchMedia('(pointer: fine)').matches) {
+          document.documentElement.classList.add('has-custom-cursor');
+          window.addEventListener('pointermove', (event) => {
+            cursor.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0)`;
+          }, { passive: true });
+        }
+
+        document.querySelectorAll('a[href]').forEach((link) => {
+          link.addEventListener('click', (event) => {
+            const anchor = link as HTMLAnchorElement;
+            const destination = new URL(anchor.href, window.location.href);
+            if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || anchor.target === '_blank' || destination.origin !== window.location.origin || destination.pathname === window.location.pathname && destination.hash) return;
+            const transition = document.querySelector('.page-transition');
+            if (!transition) return;
+            event.preventDefault();
+            transition.classList.add('is-leaving');
+            window.setTimeout(() => { window.location.href = anchor.href; }, 180);
+          });
+        });
+      }, { once: true });
     </script>
   </body>
 </html>

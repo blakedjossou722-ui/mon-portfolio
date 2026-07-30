@@ -7,7 +7,7 @@
     <div class="grid lg:grid-cols-12 gap-12 items-center">
       
       <!-- Contact Information -->
-      <div class="lg:col-span-5 space-y-6">
+      <div class="lg:col-span-5 space-y-6 reveal">
         <div>
           <span class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-2 inline-block">
             Prendre contact
@@ -30,8 +30,21 @@
             </div>
             <div>
               <p class="text-xs text-slate-400">Adresse e-mail</p>
-              <a href="mailto:contact@mon-portfolio.dev" class="text-sm font-semibold text-white hover:text-indigo-400 transition-colors">
-                contact@mon-portfolio.dev
+              <a href="mailto:blakedjossou722@gmail.com" class="text-sm font-semibold text-white hover:text-indigo-400 transition-colors">
+                blakedjossou722@gmail.com
+              </a>
+            </div>
+          </div>
+
+          <!-- WhatsApp Card -->
+          <div class="glass-card p-4 rounded-xl border border-white/10 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-emerald-600/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.157 4.228 4.301-1.127z"/></svg>
+            </div>
+            <div>
+              <p class="text-xs text-slate-400">WhatsApp</p>
+              <a href="https://wa.me/2290153298119" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-white hover:text-emerald-400 transition-colors">
+                +229 01 53 29 81 19
               </a>
             </div>
           </div>
@@ -55,14 +68,16 @@
       </div>
 
       <!-- Contact Form -->
-      <div class="lg:col-span-7">
-        <form class="glass-card p-8 rounded-2xl border border-white/10 space-y-5" onsubmit="event.preventDefault(); alert('Message envoyé avec succès !');">
+      <div class="lg:col-span-7 reveal reveal-delay-1">
+        <form id="home-contact-form" class="glass-card p-8 rounded-2xl border border-white/10 space-y-5">
+          <div id="home-form-status" class="hidden p-4 rounded-xl text-sm font-medium border" role="status"></div>
           <div class="grid sm:grid-cols-2 gap-5">
             <div>
               <label for="name" class="block text-xs font-semibold text-slate-300 mb-2">Votre nom</label>
               <input
                 type="text"
                 id="name"
+                name="name"
                 required
                 placeholder="Alex Morgan"
                 class="w-full px-4 py-3 bg-slate-900/80 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-indigo-500 transition-colors"
@@ -73,6 +88,7 @@
               <input
                 type="email"
                 id="email"
+                name="email"
                 required
                 placeholder="alex@exemple.com"
                 class="w-full px-4 py-3 bg-slate-900/80 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-indigo-500 transition-colors"
@@ -84,7 +100,8 @@
             <label for="subject" class="block text-xs font-semibold text-slate-300 mb-2">Sujet du message</label>
             <input
               type="text"
-              id="subject"
+                id="subject"
+                name="subject"
               required
               placeholder="Projet de site web, opportunité de stage..."
               class="w-full px-4 py-3 bg-slate-900/80 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-indigo-500 transition-colors"
@@ -95,6 +112,7 @@
             <label for="message" class="block text-xs font-semibold text-slate-300 mb-2">Message</label>
             <textarea
               id="message"
+              name="message"
               rows="4"
               required
               placeholder="Bonjour, je souhaiterais échanger avec vous concernant..."
@@ -118,6 +136,24 @@
 
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('home-contact-form') as HTMLFormElement | null;
+    const status = document.getElementById('home-form-status');
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const subject = `[Portfolio] ${data.get('subject') || 'Nouveau message'}`;
+      const body = `Bonjour Blake,\n\n${data.get('message') || ''}\n\nDe : ${data.get('name') || ''}\nE-mail : ${data.get('email') || ''}`;
+      if (status) {
+        status.className = 'p-4 rounded-xl text-sm font-medium border bg-indigo-500/10 border-indigo-500/30 text-indigo-300 block';
+        status.textContent = 'Votre application e-mail va s’ouvrir pour finaliser l’envoi.';
+      }
+      window.location.href = `mailto:blakedjossou722@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  });
+</script>
 
 <style>
   .service-callout {

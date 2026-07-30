@@ -1,0 +1,60 @@
+---
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import Layout from '../layouts/Layout.astro';
+
+interface Props {
+  title: string;
+  summary: string;
+  description: string;
+  stack: string[];
+  challenge: string;
+  solution: string;
+  result: string;
+}
+
+const { title, summary, description, stack, challenge, solution, result } = Astro.props as Props;
+---
+
+<Layout title={`${title} | Blake DJOSSOU`} description={summary}>
+  <Header />
+  <main class="flex-grow">
+    <section class="py-16 sm:py-24">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <a href="/projects" class="inline-flex items-center gap-2 text-sm font-mono text-indigo-300 hover:text-white transition-colors initial-reveal">← Retour aux projets</a>
+        <header class="mt-10 max-w-3xl initial-reveal initial-reveal-delay">
+          <span class="text-xs font-bold uppercase tracking-widest text-indigo-400 font-mono">// Étude de cas</span>
+          <h1 class="mt-3 text-4xl sm:text-5xl font-extrabold font-heading text-white tracking-tight">{title}</h1>
+          <p class="mt-5 text-lg text-slate-300 leading-relaxed">{summary}</p>
+        </header>
+
+        <div class="mt-14 grid gap-6 md:grid-cols-2">
+          <section class="glass-card rounded-2xl p-6 sm:p-8 reveal">
+            <h2 class="text-xl font-bold font-heading text-white">Le projet</h2>
+            <p class="mt-3 text-sm leading-relaxed text-slate-400">{description}</p>
+          </section>
+          <section class="glass-card rounded-2xl p-6 sm:p-8 reveal reveal-delay-1">
+            <h2 class="text-xl font-bold font-heading text-white">Stack technique</h2>
+            <ul class="mt-4 flex flex-wrap gap-2" aria-label="Technologies utilisées">
+              {stack.map((item) => <li class="px-3 py-1.5 rounded-lg border border-indigo-500/25 bg-indigo-500/10 text-xs font-mono text-indigo-200">{item}</li>)}
+            </ul>
+          </section>
+          <section class="glass-card rounded-2xl p-6 sm:p-8 reveal">
+            <h2 class="text-xl font-bold font-heading text-white">Défi & solution</h2>
+            <p class="mt-3 text-sm leading-relaxed text-slate-400"><strong class="text-slate-200">Défi :</strong> {challenge}</p>
+            <p class="mt-3 text-sm leading-relaxed text-slate-400"><strong class="text-slate-200">Solution :</strong> {solution}</p>
+          </section>
+          <section class="glass-card rounded-2xl p-6 sm:p-8 reveal reveal-delay-1">
+            <h2 class="text-xl font-bold font-heading text-white">Résultat</h2>
+            <p class="mt-3 text-sm leading-relaxed text-slate-400">{result}</p>
+          </section>
+        </div>
+
+        <div class="mt-10 text-center reveal">
+          <a href="/projects" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-sm font-semibold text-white hover:from-indigo-500 hover:to-purple-500 transition-all">Retour à tous les projets <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
