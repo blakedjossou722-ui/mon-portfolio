@@ -66,7 +66,7 @@ const canonicalUrl = Astro.site
     <!-- Ultra-lightweight Scroll Reveal Observer -->
     <script>
       window.addEventListener('load', () => {
-        const revealElements = document.querySelectorAll('.reveal, [data-reveal]');
+        const revealElements = document.querySelectorAll<HTMLElement>('.reveal, .glass-card, .glass-panel, .glass-card-hover, [data-reveal]');
         if ('IntersectionObserver' in window) {
           const observer = new IntersectionObserver((entries, instance) => {
             entries.forEach((entry) => {
