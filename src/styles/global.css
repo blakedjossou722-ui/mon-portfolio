@@ -52,13 +52,13 @@
 }
 
 .glass-card-hover {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .glass-card-hover:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px) scale(1.01);
   border-color: rgba(129, 140, 248, 0.4);
-  box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.25);
+  box-shadow: 0 24px 44px -16px rgba(99, 102, 241, 0.28);
 }
 
 .glow-gradient {
@@ -138,14 +138,16 @@
 /* Zero-JS Overhead Scroll Reveal System */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  transform: translateY(28px) scale(0.985);
+  filter: blur(6px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform, filter;
 }
 
 .reveal.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+  filter: blur(0);
 }
 
 .reveal-delay-1 { transition-delay: 100ms; }
