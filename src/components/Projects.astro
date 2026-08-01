@@ -1,11 +1,13 @@
 ---
 import ResponsiveImage from './ResponsiveImage.astro';
 
+const siteBase = Astro.site ? Astro.site.pathname.replace(/\/$/, '') : '';
+
 const projects = [
   {
     title: 'Xcms Architecture',
     category: 'Architecture Web & Design System',
-    desc: 'Infrastructure web compacte et scalable. Design system complet avec composants React/Astro réutilisables et documentation.',
+    desc: 'Infrastructure web compacte et scalable. Design system complet avec composants React/Astro réutilisables et documentation. ',
     tags: ['Astro', 'React', 'TypeScript', 'Tailwind'],
     link: '/projects/xcms',
     image: '/Dev_icone.png',
@@ -39,6 +41,8 @@ const projects = [
     badgeColor: 'border-cyan-500/30 text-cyan-300'
   }
 ];
+
+const resolveHref = (href: string) => href.startsWith('/') ? `${siteBase}${href}` : href;
 ---
 
 <section id="projects" class="py-16 border-t border-slate-800/80">
@@ -55,7 +59,7 @@ const projects = [
         </h2>
       </div>
       <a
-        href="/projects"
+        href={`${siteBase}/projects`}
         class="inline-flex items-center gap-2 text-xs font-bold font-mono text-indigo-400 hover:text-indigo-300 transition-colors"
       >
         <span>Tous les projets</span>
@@ -108,7 +112,7 @@ const projects = [
           <!-- Card Footer -->
           <div class="p-6 pt-0">
             <a
-              href={project.link}
+              href={resolveHref(project.link)}
               class="inline-flex items-center gap-2 text-xs font-bold font-mono text-indigo-400 hover:text-indigo-300 transition-colors"
             >
               <span>Découvrir le projet</span>

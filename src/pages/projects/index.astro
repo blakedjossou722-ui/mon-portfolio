@@ -5,6 +5,9 @@ import Footer from '../../components/Footer.astro';
 import Hero from '../../components/Hero.astro';
 import ResponsiveImage from '../../components/ResponsiveImage.astro';
 
+const siteBase = Astro.site ? Astro.site.pathname.replace(/\/$/, '') : '';
+const resolveHref = (href: string) => href.startsWith('/') ? `${siteBase}${href}` : href;
+
 const mainProjects = [
   {
     title: 'Xcms Architecture',
@@ -54,10 +57,10 @@ const graphicProjects = [
       eyebrow="// PORTFOLIO & RÉALISATIONS"
       title="Des projets concrets qui fonctionnent vraiment."
       text="Sélection de réalisations couvrant le développement web, le design d'interfaces et la création visuelle. À chaque fois, la rencontre entre rigueur technique et esthétique."
-      imageSrc="/Professional.gif"
+      imageSrc={`${siteBase}/Professional.gif`}
       imageAlt="Illustration réalisations"
       primaryLabel="Me contacter"
-      primaryHref="/contact"
+      primaryHref={`${siteBase}/contact`}
       secondaryLabel=""
     />
 
@@ -87,7 +90,7 @@ const graphicProjects = [
                 </div>
               </div>
               <div class="px-6 sm:px-8 pb-6 pt-0 border-t border-slate-800/80 mt-auto">
-                <a href={proj.href} class="inline-flex items-center gap-2 text-xs font-bold font-mono text-indigo-400 hover:text-indigo-300 pt-4">
+                <a href={resolveHref(proj.href)} class="inline-flex items-center gap-2 text-xs font-bold font-mono text-indigo-400 hover:text-indigo-300 pt-4">
                   <span>Voir le projet en détail</span>
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </a>
@@ -117,7 +120,7 @@ const graphicProjects = [
                 <h3 class="font-bold text-white text-lg mb-2">{gProj.title}</h3>
                 <p class="text-slate-400 text-xs leading-relaxed mb-4">{gProj.desc}</p>
               </div>
-              <a href={gProj.href} class="text-xs font-bold font-mono text-purple-400 hover:text-purple-300 inline-flex items-center gap-1">
+              <a href={resolveHref(gProj.href)} class="text-xs font-bold font-mono text-purple-400 hover:text-purple-300 inline-flex items-center gap-1">
                 <span>Découvrir</span> →
               </a>
             </div>

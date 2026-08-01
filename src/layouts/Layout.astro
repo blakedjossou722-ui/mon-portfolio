@@ -11,8 +11,11 @@ const {
   description = "Portfolio professionnel de Blake DJOSSOU, développeur web full-stack et créateur visuel. Découvrez ses projets, compétences et créations visuelles."
 } = Astro.props as Props;
 
-const siteUrl = Astro.site ? Astro.site.origin : 'https://mon-portfolio.vercel.app';
-const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const siteBase = Astro.site ? Astro.site.pathname.replace(/\/$/, '') : '';
+const siteOrigin = Astro.site ? Astro.site.origin : 'https://mon-portfolio.vercel.app';
+const canonicalUrl = Astro.site
+  ? new URL(Astro.url.pathname, `${siteOrigin}${siteBase}/`).toString()
+  : 'https://mon-portfolio.vercel.app/';
 ---
 
 <!doctype html>
@@ -21,8 +24,8 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href={`${siteBase}/favicon.svg`} />
+    <link rel="icon" href={`${siteBase}/favicon.ico`} />
     <meta name="generator" content={Astro.generator} />
 
     <!-- Google Fonts -->
@@ -35,7 +38,7 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={`${siteUrl}/Dev_icone.png`} />
+    <meta property="og:image" content={`${siteOrigin}${siteBase}/Dev_icone.png`} />
     
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />

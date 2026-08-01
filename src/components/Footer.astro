@@ -1,5 +1,11 @@
 ---
 const currentYear = new Date().getFullYear();
+const siteBase = Astro.site ? Astro.site.pathname.replace(/\/$/, '') : '';
+const resolveHref = (href: string) => {
+  if (!href) return href;
+  if (href.startsWith(siteBase)) return href;
+  return href.startsWith('/') ? `${siteBase}${href}` : href;
+};
 
 const footerNav = [
   { href: '/', label: 'Accueil' },
@@ -27,7 +33,7 @@ const footerNav = [
     <!-- Links -->
     <nav class="flex flex-wrap items-center gap-6 font-mono text-xs" aria-label="Navigation de pied de page">
       {footerNav.map((link) => (
-        <a href={link.href} class="hover:text-white transition-colors">
+        <a href={resolveHref(link.href)} class="hover:text-white transition-colors">
           {link.label}
         </a>
       ))}
