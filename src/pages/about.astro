@@ -18,12 +18,16 @@ const siteBase = Astro.site ? Astro.site.pathname.replace(/\/$/, '') : '';
       text="Je fais deux choses qui se croisent : je code des sites web performants et je crée des identités visuelles fortes. La synergie idéale entre technique et esthétique."
       imageSrc={`${siteBase}/Responsive.png`}
       imageAlt="Illustration responsive moderne"
-      primaryHref={`${siteBase}/projects`}
-      secondaryHref={`${siteBase}/contact`}
+      primaryLabel="Voir mes projets"
+      primaryHref="/projects"
+      secondaryLabel="Me contacter"
+      secondaryHref="/contact"
+      tertiaryLabel="Voir mes services"
+      tertiaryHref="/services"
     />
 
     <!-- Section Intro -->
-    <section class="py-16 relative">
+    <section class="py-16 relative reveal">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
         <span class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-2 inline-block">
           Synergie & Compétences
@@ -189,7 +193,7 @@ const siteBase = Astro.site ? Astro.site.pathname.replace(/\/$/, '') : '';
     </section>
 
     <!-- CTA Section -->
-    <section class="py-16">
+    <section class="py-16 reveal">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
         <div class="glass-card p-8 sm:p-12 rounded-3xl border border-indigo-500/30 bg-gradient-to-br from-indigo-950/40 via-slate-950 to-slate-950">
           <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-white mb-3">

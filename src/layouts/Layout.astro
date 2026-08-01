@@ -66,20 +66,19 @@ const canonicalUrl = Astro.site
     <!-- Ultra-lightweight Scroll Reveal Observer -->
     <script>
       window.addEventListener('load', () => {
-        const revealElements = document.querySelectorAll('.reveal');
+        const revealElements = document.querySelectorAll('.reveal, [data-reveal]');
         if ('IntersectionObserver' in window) {
-          const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-              }
+          const observer = new IntersectionObserver((entries, instance) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add('is-visible');
+              instance.unobserve(entry.target);
             });
-          }, { threshold: 0 });
+          }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
 
-          revealElements.forEach(el => observer.observe(el));
+          revealElements.forEach((el) => observer.observe(el));
         } else {
-          revealElements.forEach(el => el.classList.add('is-visible'));
+          revealElements.forEach((el) => el.classList.add('is-visible'));
         }
         const progress = document.querySelector('.reading-progress') as HTMLElement | null;
         const backToTop = document.querySelector('.back-to-top') as HTMLButtonElement | null;
