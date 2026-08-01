@@ -20,15 +20,22 @@ const {
   fetchpriority = 'auto'
 } = Astro.props as Props;
 
-const avif = src.replace(/\.(png|jpe?g|gif)$/i, '.avif');
-const webp = src.replace(/\.(png|jpe?g|gif)$/i, '.webp');
+const siteBase = Astro.site ? Astro.site.pathname.replace(/\/$/, '') : '';
+const resolveSrc = (input: string) => {
+  if (!input) return input;
+  if (input.startsWith(siteBase)) return input;
+  return input.startsWith('/') ? `${siteBase}${input}` : input;
+};
+const avif = resolveSrc(src.replace(/\.(png|jpe?g|gif)$/i, '.avif'));
+const webp = resolveSrc(src.replace(/\.(png|jpe?g|gif)$/i, '.webp'));
+const srcAttr = resolveSrc(src);
 ---
 
 <picture>
   <source srcset={avif} type="image/avif" />
   <source srcset={webp} type="image/webp" />
   <img
-    src={src}
+    src={srcAttr}
     alt={alt}
     loading={loading}
     decoding="async"

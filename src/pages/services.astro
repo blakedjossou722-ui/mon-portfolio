@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Footer from '../components/Footer.astro';
 import ResponsiveImage from '../components/ResponsiveImage.astro';
+const siteBase = Astro.site ? Astro.site.pathname.replace(/\/$/, '') : '';
 ---
 
 <Layout
@@ -16,12 +17,12 @@ import ResponsiveImage from '../components/ResponsiveImage.astro';
       eyebrow="// SERVICES & EXPERTISE"
       title="Ce que je peux réaliser pour vous."
       text="Des prestations sur-mesure combinant intégration web ultra-rapide, design visuel percutant et expérience utilisateur fluide pour maximiser l'impact de vos projets."
-      imageSrc="/Web.png"
+      imageSrc={`${siteBase}/Web.png`}
       imageAlt="Illustration services web"
       primaryLabel="Voir mes projets"
-      primaryHref="/projects"
+      primaryHref={`${siteBase}/projects`}
       secondaryLabel="Demander un devis"
-      secondaryHref="/contact"
+      secondaryHref={`${siteBase}/contact`}
     />
 
     <!-- Main Services Grid -->
@@ -166,7 +167,7 @@ import ResponsiveImage from '../components/ResponsiveImage.astro';
             Parlons de vos besoins et établissons ensemble une stratégie de réalisation efficace.
           </p>
           <a
-            href="/contact"
+            href={`${siteBase}/contact`}
             class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold text-sm shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 transition-all hover:-translate-y-0.5"
           >
             <span>Me contacter</span>

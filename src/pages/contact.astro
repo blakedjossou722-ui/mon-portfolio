@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Footer from '../components/Footer.astro';
+const siteBase = Astro.site ? Astro.site.pathname.replace(/\/$/, '') : '';
 ---
 
 <Layout
@@ -15,7 +16,7 @@ import Footer from '../components/Footer.astro';
       eyebrow="// PRENDRE CONTACT"
       title="Vous avez un projet ? Discutons-en."
       text="Que vous ayez besoin d'un site web sur-mesure, d'un redesign UI/UX ou d'une identité visuelle complète, envoyez-moi un message."
-      imageSrc="/Your.png"
+      imageSrc={`${siteBase}/Your.png`}
       imageAlt="Illustration contact"
       primaryLabel="Parler directement"
       primaryHref="#contact-form"

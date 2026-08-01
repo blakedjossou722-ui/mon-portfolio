@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Footer from '../components/Footer.astro';
+const siteBase = Astro.site ? Astro.site.pathname.replace(/\/$/, '') : '';
 ---
 
 <Layout
@@ -15,10 +16,10 @@ import Footer from '../components/Footer.astro';
       eyebrow="// À PROPOS"
       title="Blake DJOSSOU — Coder et designer sans compromis."
       text="Je fais deux choses qui se croisent : je code des sites web performants et je crée des identités visuelles fortes. La synergie idéale entre technique et esthétique."
-      imageSrc="/Responsive.png"
+      imageSrc={`${siteBase}/Responsive.png`}
       imageAlt="Illustration responsive moderne"
-      primaryHref="/projects"
-      secondaryHref="/contact"
+      primaryHref={`${siteBase}/projects`}
+      secondaryHref={`${siteBase}/contact`}
     />
 
     <!-- Section Intro -->
@@ -198,7 +199,7 @@ import Footer from '../components/Footer.astro';
             Développement web, refonte UI/UX ou création visuelle : discutons ensemble de vos besoins.
           </p>
           <a
-            href="/contact"
+            href={`${siteBase}/contact`}
             class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold text-sm shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 transition-all hover:-translate-y-0.5"
           >
             <span>Discuter de mon projet</span>
